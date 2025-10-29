@@ -1,4 +1,4 @@
-# Tech01 - Dark Minimal Theme for Obsidian
+# Tech001 - Dark Minimal Theme for Obsidian
 
 This Obsidian setup uses a **dark, minimalist, and professional theme** designed for technical documentation and coding reference notes. The layout emphasizes **clarity, hierarchy, and focus** — ideal for software engineering notes, tutorials, and code samples
 
@@ -11,7 +11,7 @@ This theme works perfectly with `JetBrains Mono` font, available here: https://w
 
 ## Installation
 
-1. Download `Tech01` from this repository.
+1. Download `Tech001` from this repository.
 2. Copy both files to your `.obsidian/themes/`.
 3. In Obsidian, go to **Settings → Appearance → Themes** and select "Tech001".
 
