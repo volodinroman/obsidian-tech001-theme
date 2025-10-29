@@ -1,0 +1,166 @@
+
+body {
+    --background-primary: #222425;
+    --background-secondary: #202122;
+    --h1-size: 2.4em;
+    --h1-weight: 400;
+    --h2-size: 1.8em;
+    --h2-weight: 400;
+    --h3-size: 1.2em;
+    --h3-weight: 400;
+    /* --text-normal: #b7babd; */
+    --caret-color	: #8fdff5; 
+    --blockquote-border-color: #8fdff5;
+
+
+    --code-background: #1e1e1e; /* Darker background */
+    --code-size: 0.9em;        /* Slightly smaller font size */
+    --code-normal: #d4d4d4;   /* Lighter text */
+    --code-comment: #6a9955;   /* VS Code-style comments */
+    --code-string: #ce9178;    /* VS Code-style strings */
+    --code-function: #dcdcaa;  /* VS Code-style functions */
+    --code-keyword: #569cd6;   /* VS Code-style keywords */
+    --code-operator: #d4d4d4;  /* VS Code-style operators */
+    --code-property: #9cdcfe;  /* VS Code-style properties */
+    --code-value: #b5cea8;     /* VS Code-style values */
+
+    /* my vars */
+    --font-family-code: 'JetBrains Mono', Consolas, Menlo, 'DejaVu Sans Mono', 'Courier New', monospace;
+
+    --code-border-color: #363636;
+}
+
+
+.markdown-source-view, 
+.markdown-preview-view { 
+    max-width: 1400px; 
+    margin: auto; 
+    font-size: 1.1em;
+}
+
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 2px !important;
+  background-color: #3b3b3b !important;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #757575 !important;
+  border-radius: 8px;
+}
+
+/* tabs */
+.workspace-tab-header-container,
+.titlebar-button {
+    background-color: #1b1d1e !important;
+}
+.titlebar-button:hover {
+    background-color: #2a2c2d !important;
+}
+
+.markdown-source-view.is-live-preview .cm-header,
+.markdown-reading-view .cm-header{
+  color: #eaeaea !important;
+}
+
+.sidebar-toggle-button{
+  background-color: #1b1d1e !important;
+}
+
+/* headers */
+.markdown-source-view.is-live-preview .cm-header{
+  color: #eaeaea !important;
+}
+
+/* normal text */
+.markdown-source-view.is-live-preview .cm-line,
+.markdown-reading-view p{
+  color: #b2b2b2 !important;
+}
+
+.markdown-source-view.is-live-preview .HyperMD-list-line,
+.markdown-preview-view li {
+  line-height: 1.4 !important; /* адекватно для переносов */
+  margin-bottom: 1.0em !important; /* регулирует расстояние между элементами списка */
+}
+
+/* HyperMD-list-line HyperMD-list-line-1 cm-line */
+
+/* bold text */
+.markdown-source-view.is-live-preview .cm-strong,
+.markdown-reading-view strong{
+  color: #e3e3e3 !important;
+}
+
+/* normal text */
+.markdown-source-view.is-live-preview .cm-inline-code,
+.markdown-reading-view code {
+  color: #dcdcdc !important;
+  font-family: var(--font-family-code);
+  background-color: #1e1e1f ;
+  border: 1px solid var(--code-border-color);
+  padding: 2px 5px 2px 5px;
+}
+
+/* Codeblock */
+.markdown-source-view.is-live-preview .HyperMD-codeblock,
+.markdown-reading-view pre {
+  font-family: var(--font-family-code);
+  background-color: #1e1e1f;
+  border-left: 1px solid var(--code-border-color);
+  border-right: 1px solid var(--code-border-color);
+}
+
+.markdown-reading-view pre {
+  border-top: 1px solid var(--code-border-color);
+  border-bottom: 1px solid var(--code-border-color);
+}
+
+.markdown-source-view.is-live-preview .HyperMD-codeblock-begin{
+  border-top: 1px solid var(--code-border-color);
+}
+.markdown-source-view.is-live-preview .HyperMD-codeblock-end{
+  border-bottom: 1px solid var(--code-border-color);
+}
+
+/* Outliner */
+.nav-folder-title {
+  color: #aaaaaa; 
+  font-weight: 200;
+  font-size: 0.9;
+  font-family: var(--font-family-code);
+}
+
+.nav-folder-title:hover {
+  color: #aaaaaa !important; 
+  font-weight: 200 !important;
+  font-size: 0.9 !important;
+} 
+
+.nav-file-title {
+  color: #aaaaaa;
+  font-size: 0.9 !important;
+  font-family: var(--font-family-code);
+}
+
+.nav-file-title.is-active {
+  color: #aaaaaa; 
+  font-size: 0.9 !important;
+}
+
+body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tree-text)::before {
+  position: relative;
+  content: "";
+  display: inline-block;
+  width: 0.9rem;
+  opacity: 0.7;
+  top: 0.15rem;
+  height: 0.9rem;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #aaaaaa;
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>');
+}
