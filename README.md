@@ -1,3 +1,5 @@
+> This is an in-progress project, that I initially created for myself, but decided to share it here.
+
 # Tech001 - Dark Minimal Theme for Obsidian
 
 This Obsidian setup uses a **dark, minimalist, and professional theme** designed for technical documentation and coding reference notes. The layout emphasizes **clarity, hierarchy, and focus** — ideal for software engineering notes, tutorials, and code samples
