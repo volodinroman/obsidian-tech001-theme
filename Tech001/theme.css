@@ -1,219 +1,287 @@
 /* ==========================================================================
-   1. VARIABLES & THEME COLORS
+   GOOGLE DARK STYLE (FIXED: Visible Tabs & Readable Sidebar)
    ========================================================================== */
-body {
-    /* --- Основные цвета интерфейса --- */
-    --background-primary: #222425;
-    --background-secondary: #202122;
-    
-    /* --- Типографика (стандартные переменные Obsidian) --- */
-    --text-normal: #b2b2b2;         /* Основной текст */
-    --text-bold: #e3e3e3;           /* Жирный текст */
-    --text-muted: #757575;          /* Текст подсказок/метаданных */
-    --text-faint: #444444;
-    
-    /* Заголовки */
-    --h1-color: #eaeaea;
-    --h2-color: #eaeaea;
-    --h3-color: #eaeaea;
-    --h4-color: #eaeaea;
-    --h5-color: #eaeaea;
-    --h6-color: #eaeaea;
-    
-    --h1-size: 2.4em; --h1-weight: 400;
-    --h2-size: 1.8em; --h2-weight: 400;
-    --h3-size: 1.2em; --h3-weight: 400;
 
-    /* --- UI Элементы --- */
-    --caret-color: #8fdff5; 
-    --blockquote-border-color: #8fdff5;
+body {
+    /* --- Цветовая схема (Google Dark / Material) --- */
+    --background-primary: #1e1f20;   /* Фон редактора */
+    --background-secondary: #252627; /* Боковая панель */
+    --background-secondary-alt: #18191a; /* Фон за вкладками (темнее) */
+    --background-modifier-border: #3c4043; /* Границы */
     
-    /* --- Code Variables (VS Code Dark Theme) --- */
-    --code-background: #1e1e1e;
-    --code-border-color: #363636;
-    --font-family-code: 'JetBrains Mono', Consolas, Menlo, 'DejaVu Sans Mono', 'Courier New', monospace;
+    /* --- Типографика --- */
+    /* Заголовки - Чисто белые */
+    --h1-color: #ffffff;
+    --h2-color: #ffffff;
+    --h3-color: #f0f0f0;
+    --h4-color: #f0f0f0;
+    
+    /* Обычный текст - Чуть приглушенный (чтобы не резал глаза) */
+    --text-normal: #bec1c5;          /* Светло-серый, комфортный */
+    --text-muted: #9aa0a6;           /* Второстепенный текст */
+    --text-faint: #5f6368;           /* Еле заметный */
+    
+    /* Акценты */
+    --text-accent: #8ab4f8;          /* Google Blue */
+    --text-accent-hover: #aecbfa;
+    --caret-color: #8ab4f8; 
+
+    /* --- Размеры шрифтов --- */
+    --h1-size: 2.2em; --h1-weight: 400;
+    --h2-size: 1.6em; --h2-weight: 400;
+    --h3-size: 1.2em; --h3-weight: 500;
+    
+    /* --- Code Variables (VS Code Dark) --- */
+    --code-background: #28292a; 
+    --code-border-color: #3c4043;
+    --font-family-code: 'JetBrains Mono', 'Roboto Mono', Consolas, monospace;
     --code-size: 0.9em;
     
-    /* Syntax Highlighting Colors */
-    --code-normal: #d4d4d4;
-    --code-comment: #6a9955;
+    /* Подсветка синтаксиса */
+    --code-normal: #e8eaed;
+    --code-comment: #7ba17e;
     --code-string: #ce9178;
     --code-function: #dcdcaa;
     --code-keyword: #569cd6;
     --code-operator: #d4d4d4;
     --code-property: #9cdcfe;
     --code-value: #b5cea8;
-    --code-tag: #569cd6;
-    --code-attribute: #9cdcfe;
+    
+    --radius-m: 8px;
 }
 
 /* ==========================================================================
-   2. GENERAL LAYOUT
+   1. ОГРАНИЧЕНИЕ ШИРИНЫ И ТЕКСТ
    ========================================================================== */
+
+/* Ограничение ширины контента */
+.markdown-source-view .cm-scroller,
+.markdown-preview-view { 
+    max-width: 1400px !important; 
+    margin: 0 auto !important; 
+    width: 100%;
+}
+
+/* Настройки шрифта */
 .markdown-source-view, 
 .markdown-preview-view { 
-    max-width: 1400px; 
-    margin: auto; 
-    font-size: 1.1em;
+    font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+    color: var(--text-normal); 
 }
 
-/* Типографика заголовков (чуть плотнее) */
-.cm-header, h1, h2, h3 {
-    letter-spacing: -0.02em;
+/* Явно приглушаем параграфы и списки */
+.cm-line, p, li {
+    color: var(--text-normal) !important;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 8px !important; /* Чуть шире, чтобы было удобнее попадать */
-    background-color: #202122 !important;
-}
-::-webkit-scrollbar-thumb {
-    background-color: #3b3b3b !important;
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background-color: #757575 !important;
-}
-
-/* Tabs & Top Bar */
-.workspace-tab-header-container,
-.titlebar-button {
-    background-color: #1b1d1e !important;
-}
-.titlebar-button:hover {
-    background-color: #2a2c2d !important;
-}
-.sidebar-toggle-button {
-    background-color: #1b1d1e !important;
+/* Заголовки выделяются яркостью */
+.cm-header, h1, h2, h3, h4, h5, h6 {
+    color: var(--h1-color) !important;
+    letter-spacing: -0.01em;
+    margin-top: 1.5em !important;
+    margin-bottom: 0.8em !important;
 }
 
 /* ==========================================================================
-   3. LISTS & SPACING (FIX FOR SELECTION BUG)
+   2. ВЕРХНЯЯ ПАНЕЛЬ И ВКЛАДКИ (ИСПРАВЛЕНО)
    ========================================================================== */
 
-/* Режим ЧТЕНИЯ (Preview) - используем margin */
-.markdown-preview-view li {
-    line-height: 1.4 !important;
-    margin-bottom: 1.0em !important;
+/* Фон контейнера вкладок и заголовка */
+/* .titlebar {
+    background-color: var(--background-secondary-alt) !important; 
+} */
+.workspace-tab-header-container {
+    /* background-color: var(--background-secondary) !important; */
+    padding-top: 0px;
+    border-bottom: 1px solid var(--background-modifier-border);
 }
 
-/* Режим РЕДАКТИРОВАНИЯ (Live Preview) - используем padding */
-/* Это исправляет баг "рваного" выделения мышью */
+/* Сами вкладки */
+.workspace-tab-header {
+    background-color: transparent !important;
+    color: var(--text-muted);
+    border-radius: 8px 8px 0 0;
+    margin-right: 2px;
+}
+
+/* Активная вкладка - должна быть цвета редактора */
+.workspace-tab-header.is-active {
+    background-color: var(--background-primary) !important; 
+    color: var(--text-normal) !important;
+    font-weight: 500;
+    box-shadow: none !important;
+    border-top: 1px solid var(--text-muted); 
+    border-left: 1px solid var(--background-modifier-border); 
+    border-right: 1px solid var(--background-modifier-border); 
+}
+
+.workspace-tab-header:not(.is-active):hover {
+    background-color: rgba(255,255,255, 0.05) !important;
+    color: var(--text-normal);
+}
+
+/* Кнопки окна (свернуть/закрыть) сливаются с фоном */
+/* .titlebar-button {
+    background-color: transparent !important;
+    opacity: 0.6;
+} */
+.titlebar-button:hover {
+    background-color: rgba(255,255,255, 0.1) !important;
+    opacity: 1;
+}
+
+/* Кнопки сайдбара слева */
+.sidebar-toggle-button {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* ==========================================================================
+   3. SIDEBAR / OUTLINER (ИСПРАВЛЕНО: ЧИТАЕМОСТЬ)
+   ========================================================================== */
+
+/* Текст файлов - теперь светлее и читаемее */
+.nav-folder-title, .nav-file-title {
+    font-size: 1em;
+    color: #c0c0c0; /* Светло-серый, не темный! */
+    border-radius: 0 20px 20px 0;
+    padding: 4px 8px 4px 15px;
+    margin-left: -10px;
+    transition: background 0.2s ease;
+}
+
+/* При наведении */
+.nav-file-title:hover, .nav-folder-title:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Активный файл */
+.nav-file-title.is-active {
+    background-color: rgba(138, 180, 248, 0.15); /* Прозрачный синий */
+    color: var(--text-accent) !important; /* Голубой текст */
+    font-weight: 500;
+}
+
+/* Иконки файлов */
+body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "";
+    display: inline-block;
+    width: 14px; height: 14px;
+    margin-right: 8px;
+    background-color: #c0c0c0; /* Цвет иконки под текст */
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>') no-repeat center;
+    -webkit-mask-size: contain;
+    opacity: 0.7;
+}
+.nav-file-title.is-active .nav-file-title-content::before {
+    background-color: var(--text-accent);
+    opacity: 1;
+}
+
+/* ==========================================================================
+   4. LISTS & CHECKBOXES (FIX FOR BUG)
+   ========================================================================== */
+
+/* Режим чтения */
+.markdown-preview-view li {
+    margin-bottom: 0.6em !important;
+}
+
+/* Режим редактирования (Padding Fix) */
 .markdown-source-view.is-live-preview .HyperMD-list-line {
-    line-height: 1.4 !important;
-    padding-bottom: 1.0em !important; 
+    padding-bottom: 0.6em !important;
     margin-bottom: 0 !important;
 }
 
+/* Круглые чекбоксы */
+input[type=checkbox] {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    border: 2px solid #9aa0a6;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 3px;
+    cursor: pointer;
+}
+input[type=checkbox]:checked {
+    background-color: var(--text-accent);
+    border-color: var(--text-accent);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e1f20'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+}
+
 /* ==========================================================================
-   4. CODE BLOCKS & SYNTAX HIGHLIGHTING
+   5. CODE BLOCKS (CARDS)
    ========================================================================== */
 
-/* Общие настройки шрифта кода */
-.markdown-source-view.is-live-preview .cm-inline-code,
-.markdown-reading-view code,
-.markdown-source-view.is-live-preview .HyperMD-codeblock,
-.markdown-reading-view pre {
-    font-family: var(--font-family-code);
-    background-color: var(--code-background);
+/* Карточки цитат */
+blockquote {
+    border-left: 3px solid var(--text-accent);
+    background-color: #292a2d;
+    border-radius: 0 var(--radius-m) var(--radius-m) 0;
+    padding: 10px 20px;
+    margin: 1em 0;
+    color: var(--text-muted);
+    font-style: italic;
 }
 
-/* Inline Code (текст внутри `backticks`) */
+/* Инлайн код */
 .markdown-source-view.is-live-preview .cm-inline-code,
 .markdown-reading-view code {
-    color: var(--code-normal) !important;
+    color: #e8eaed !important;
+    background-color: var(--code-background);
     border: 1px solid var(--code-border-color);
     padding: 2px 6px;
-    border-radius: 4px; /* Скругление */
+    border-radius: 6px;
+    font-family: var(--font-family-code);
+    font-size: 0.85em;
 }
 
-/* Code Blocks - Borders & Radius */
-/* Режим чтения */
+/* Блоки кода (Скругленные) */
 .markdown-reading-view pre {
     border: 1px solid var(--code-border-color);
-    border-radius: 6px;
-    padding: 10px;
+    border-radius: var(--radius-m);
+    padding: 15px;
+    background-color: var(--code-background);
 }
-
-/* Режим редактирования (убираем лишние границы, добавляем скругление) */
+/* Редактор кода */
 .markdown-source-view.is-live-preview .HyperMD-codeblock-begin {
     border-top: 1px solid var(--code-border-color);
     border-left: 1px solid var(--code-border-color);
     border-right: 1px solid var(--code-border-color);
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    border-top-left-radius: var(--radius-m);
+    border-top-right-radius: var(--radius-m);
+    padding-top: 10px;
+    background-color: var(--code-background);
 }
 .markdown-source-view.is-live-preview .HyperMD-codeblock {
     border-left: 1px solid var(--code-border-color);
     border-right: 1px solid var(--code-border-color);
+    background-color: var(--code-background);
 }
 .markdown-source-view.is-live-preview .HyperMD-codeblock-end {
     border-bottom: 1px solid var(--code-border-color);
     border-left: 1px solid var(--code-border-color);
     border-right: 1px solid var(--code-border-color);
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: var(--radius-m);
+    border-bottom-right-radius: var(--radius-m);
+    padding-bottom: 10px;
+    background-color: var(--code-background);
 }
 
-/* --- Подсветка синтаксиса (VS Code Mapping) --- */
+/* Цвета кода (VS Code) */
 .cm-s-obsidian span.cm-comment { color: var(--code-comment) !important; }
 .cm-s-obsidian span.cm-string { color: var(--code-string) !important; }
 .cm-s-obsidian span.cm-keyword { color: var(--code-keyword) !important; }
 .cm-s-obsidian span.cm-def { color: var(--code-function) !important; }
 .cm-s-obsidian span.cm-property { color: var(--code-property) !important; }
-.cm-s-obsidian span.cm-number, 
-.cm-s-obsidian span.cm-atom { color: var(--code-value) !important; }
+.cm-s-obsidian span.cm-number { color: var(--code-value) !important; }
 .cm-s-obsidian span.cm-operator { color: var(--code-operator) !important; }
-.cm-s-obsidian span.cm-variable { color: var(--code-normal) !important; }
-.cm-s-obsidian span.cm-type { color: var(--code-function) !important; }
-.cm-s-obsidian span.cm-meta { color: #c586c0 !important; } 
 
-/* ==========================================================================
-   5. FILE EXPLORER / SIDEBAR
-   ========================================================================== */
-
-/* Папки */
-.nav-folder-title {
-    color: #aaaaaa; 
-    font-weight: 300;
-    font-size: 0.9em;
-    font-family: var(--font-family-code);
-}
-.nav-folder-title:hover {
-    color: #d4d4d4 !important;
-} 
-
-/* Файлы */
-.nav-file-title {
-    color: #aaaaaa;
-    font-size: 0.9em !important;
-    font-family: var(--font-family-code);
-    transition: background-color 0.1s ease;
-    border-radius: 4px;
-}
-
-/* Активный файл (подсветка) */
-.nav-file-title.is-active {
-    color: #e3e3e3 !important; 
-    background-color: rgba(255, 255, 255, 0.06); /* Легкий фон для активного */
-}
-.nav-file-title:hover {
-    background-color: rgba(255, 255, 255, 0.03);
-}
-
-/* Иконки файлов (Ваш кастомный SVG) */
-body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tree-text)::before {
-    position: relative;
-    content: "";
-    display: inline-block;
-    width: 0.9rem;
-    opacity: 0.7;
-    top: 0.15rem;
-    height: 0.9rem;
-    margin-right: 5px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-color: #aaaaaa;
-    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>');
-}
+/* Скроллбар (Тонкий) */
+::-webkit-scrollbar { width: 8px; height: 8px; background: transparent; }
+::-webkit-scrollbar-thumb { background: #5f6368; border-radius: 4px; border: 2px solid var(--background-primary); }
