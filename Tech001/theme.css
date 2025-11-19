@@ -1,6 +1,7 @@
 /* ==========================================================================
    GOOGLE AI STUDIO DARK THEME (Deep Dark, Pill Shapes, Gemini Blue)
    ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
 
 body {
     /* --- AI Studio Palette --- */
@@ -38,7 +39,7 @@ body {
     /* --- Coding --- */
     --code-background: #1e1f20;      /* Matching surface color */
     --code-border-color: #444746;
-    --font-family-code: 'JetBrains Mono', 'Roboto Mono', monospace;
+    --font-family-code: 'Google Sans Code',  monospace;
     --code-size: 0.9em;
     
     /* Syntax Highlighting (Pastel/Vivid mix) */
@@ -69,7 +70,7 @@ body {
 /* Ограничение ширины (Focus) */
 .markdown-source-view .cm-scroller,
 .markdown-preview-view { 
-    max-width: 1200px !important; /* Чуть уже для AI-style */
+    max-width: 1400px !important; /* Чуть уже для AI-style */
     margin: 0 auto !important; 
     width: 100%;
 }
@@ -239,7 +240,7 @@ blockquote {
     padding: 2px 5px;
     /* border-radius: 10px;  */
     font-family: var(--font-family-code);
-    font-size: 0.85em;
+    /* font-size: 0.85em; */
 }
 
 /* Блоки кода */
