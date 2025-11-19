@@ -1,177 +1,178 @@
 /* ==========================================================================
-   GOOGLE DARK STYLE (FIXED: Visible Tabs & Readable Sidebar)
+   GOOGLE AI STUDIO DARK THEME (Deep Dark, Pill Shapes, Gemini Blue)
    ========================================================================== */
 
 body {
-    /* --- Цветовая схема (Google Dark / Material) --- */
-    --background-primary: #1e1f20;   /* Фон редактора */
-    --background-secondary: #252627; /* Боковая панель */
-    --background-secondary-alt: #18191a; /* Фон за вкладками (темнее) */
-    --background-modifier-border: #3c4043; /* Границы */
+    /* --- AI Studio Palette --- */
+    --background-primary: #131314;   /* Deepest Dark (AI Studio Background) */
+    --background-secondary: #1e1f20; /* Surfaces / Sidebar */
+    --background-secondary-alt: #000000; /* Top header blend */
+    --background-modifier-border: #444746; /* Subtle borders */
     
-    /* --- Типографика --- */
-    /* Заголовки - Чисто белые */
-    --h1-color: #ffffff;
-    --h2-color: #ffffff;
-    --h3-color: #f0f0f0;
-    --h4-color: #f0f0f0;
+    /* --- Typography --- */
+    --font-interface: 'Google Sans', 'Roboto', 'Inter', sans-serif;
+    --font-text: 'Google Sans', 'Roboto', 'Inter', sans-serif;
     
-    /* Обычный текст - Чуть приглушенный (чтобы не резал глаза) */
-    --text-normal: #bec1c5;          /* Светло-серый, комфортный */
-    --text-muted: #9aa0a6;           /* Второстепенный текст */
-    --text-faint: #5f6368;           /* Еле заметный */
+    /* Заголовки */
+    --h1-color: #e3e3e3;
+    --h2-color: #e3e3e3;
+    --h3-color: #c4c7c5;
+    --h4-color: #c4c7c5;
     
-    /* Акценты */
-    --text-accent: #8ab4f8;          /* Google Blue */
-    --text-accent-hover: #aecbfa;
-    --caret-color: #8ab4f8; 
+    /* Текст */
+    --text-normal: #c4c7c5;          /* Google Neutral 200 */
+    --text-muted: #8e918f;           /* Google Neutral 500 */
+    --text-faint: #444746;           
+    
+    /* Gemini Accents */
+    --text-accent: #A8C7FA;          /* Google Blue 200 (Gemini Blue) */
+    --text-accent-hover: #D3E3FD;
+    --interactive-accent: #3b5260;   /* Deep Blue for backgrounds */
+    --caret-color: #A8C7FA; 
 
-    /* --- Размеры шрифтов --- */
+    /* --- Sizes --- */
     --h1-size: 2.2em; --h1-weight: 400;
     --h2-size: 1.6em; --h2-weight: 400;
     --h3-size: 1.2em; --h3-weight: 500;
     
-    /* --- Code Variables (VS Code Dark) --- */
-    --code-background: #28292a; 
-    --code-border-color: #3c4043;
-    --font-family-code: 'JetBrains Mono', 'Roboto Mono', Consolas, monospace;
+    /* --- Coding --- */
+    --code-background: #1e1f20;      /* Matching surface color */
+    --code-border-color: #444746;
+    --font-family-code: 'JetBrains Mono', 'Roboto Mono', monospace;
     --code-size: 0.9em;
     
-    /* Подсветка синтаксиса */
-    --code-normal: #e8eaed;
-    --code-comment: #7ba17e;
-    --code-string: #ce9178;
-    --code-function: #dcdcaa;
-    --code-keyword: #569cd6;
-    --code-operator: #d4d4d4;
-    --code-property: #9cdcfe;
-    --code-value: #b5cea8;
+    /* Syntax Highlighting (Pastel/Vivid mix) */
+    --code-normal: #e3e3e3;
+    --code-comment: #8e918f;
+    --code-string: #f28b82;          /* Pastel Red */
+    --code-function: #A8C7FA;        /* Pastel Blue */
+    --code-keyword: #c58af9;         /* Pastel Purple */
+    --code-operator: #c4c7c5;
+    --code-property: #81c995;        /* Pastel Green */
+    --code-value: #fdd663;           /* Pastel Yellow */
     
-    --radius-m: 8px;
+    /* Shapes */
+    --radius-s: 4px;
+    --radius-m: 12px;                /* More rounded */
+    --radius-l: 24px;                /* Full pill shape */
 }
 
 /* ==========================================================================
-   1. ОГРАНИЧЕНИЕ ШИРИНЫ И ТЕКСТ
+   1. LAYOUT & TYPOGRAPHY
    ========================================================================== */
 
-/* Ограничение ширины контента */
+/* Шрифт везде */
+.markdown-source-view, .markdown-preview-view, .nav-file-title, .nav-folder-title {
+    font-family: var(--font-interface);
+}
+
+/* Ограничение ширины (Focus) */
 .markdown-source-view .cm-scroller,
 .markdown-preview-view { 
-    max-width: 1400px !important; 
+    max-width: 1200px !important; /* Чуть уже для AI-style */
     margin: 0 auto !important; 
     width: 100%;
 }
 
-/* Настройки шрифта */
+/* Текст редактора */
 .markdown-source-view, 
 .markdown-preview-view { 
-    font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.6;
+    line-height: 1.7; /* Больше воздуха */
     font-size: 16px;
     color: var(--text-normal); 
 }
 
-/* Явно приглушаем параграфы и списки */
+/* Приглушение обычного текста */
 .cm-line, p, li {
     color: var(--text-normal) !important;
 }
 
-/* Заголовки выделяются яркостью */
-.cm-header, h1, h2, h3, h4, h5, h6 {
+/* Заголовки */
+.cm-header, h1, h2, h3 {
     color: var(--h1-color) !important;
-    letter-spacing: -0.01em;
-    margin-top: 1.5em !important;
-    margin-bottom: 0.8em !important;
+    letter-spacing: normal;
+    margin-top: 2em !important;
+    margin-bottom: 1em !important;
 }
 
 /* ==========================================================================
-   2. ВЕРХНЯЯ ПАНЕЛЬ И ВКЛАДКИ (ИСПРАВЛЕНО)
+   2. HEADER & TABS (MINIMALIST)
    ========================================================================== */
 
-/* Фон контейнера вкладок и заголовка */
+/* Верхняя панель сливается с темным фоном */
 /* .titlebar {
-    background-color: var(--background-secondary-alt) !important; 
+    background-color: var(--background-primary) !important;
 } */
 .workspace-tab-header-container {
-    /* background-color: var(--background-secondary) !important; */
-    padding-top: 0px;
+    /* background-color: var(--background-primary) !important; */
     border-bottom: 1px solid var(--background-modifier-border);
+    /* padding-top: 5px; */
 }
 
-/* Сами вкладки */
+/* Вкладки - Минималистичный текст */
 .workspace-tab-header {
     background-color: transparent !important;
     color: var(--text-muted);
-    border-radius: 8px 8px 0 0;
-    margin-right: 2px;
+    border-radius: var(--radius-m) var(--radius-m) 0 0;
+    margin-right: 4px;
+    /* transition: all 0.1s ease; */
 }
 
-/* Активная вкладка - должна быть цвета редактора */
+/* Активная вкладка - Подчеркивание Gemini */
 .workspace-tab-header.is-active {
     background-color: var(--background-primary) !important; 
-    color: var(--text-normal) !important;
+    /* color: var(--text-accent) !important; */
     font-weight: 500;
     box-shadow: none !important;
-    border-top: 1px solid var(--text-muted); 
-    border-left: 1px solid var(--background-modifier-border); 
-    border-right: 1px solid var(--background-modifier-border); 
+    border-top: 1px solid var(--text-faint); 
+    border-left: 1px solid var(--text-faint); 
+    border-right: 1px solid var(--text-faint); 
 }
 
 .workspace-tab-header:not(.is-active):hover {
-    background-color: rgba(255,255,255, 0.05) !important;
     color: var(--text-normal);
+    background-color: rgba(255,255,255, 0.03) !important;
 }
 
-/* Кнопки окна (свернуть/закрыть) сливаются с фоном */
-/* .titlebar-button {
-    background-color: transparent !important;
-    opacity: 0.6;
-} */
 .titlebar-button:hover {
-    background-color: rgba(255,255,255, 0.1) !important;
-    opacity: 1;
-}
-
-/* Кнопки сайдбара слева */
-.sidebar-toggle-button {
-    background-color: transparent !important;
-    border: none !important;
+    background-color: rgba(255,255,255, 0.08) !important;
 }
 
 /* ==========================================================================
-   3. SIDEBAR / OUTLINER (ИСПРАВЛЕНО: ЧИТАЕМОСТЬ)
+   3. SIDEBAR (PILL SHAPED NAVIGATION)
    ========================================================================== */
 
-/* Текст файлов - теперь светлее и читаемее */
+/* Контейнер */
 .nav-folder-title, .nav-file-title {
-    font-size: 1em;
-    color: #c0c0c0; /* Светло-серый, не темный! */
-    border-radius: 0 20px 20px 0;
-    padding: 4px 8px 4px 15px;
-    margin-left: -10px;
-    transition: background 0.2s ease;
+    font-size: 0.95em;
+    color: var(--text-muted);
+    /* Полная пилюля (Pill shape) */
+    border-radius: var(--radius-l); 
+    padding: 6px 12px;
+    margin: 2px 8px; /* Отступы со всех сторон */
+    /* transition: all 0.2s ease; */
 }
 
-/* При наведении */
+/* Hover */
 .nav-file-title:hover, .nav-folder-title:hover {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.06);
+    color: var(--text-normal);
+    background-color: rgba(168, 199, 250, 0.08); /* Слабый голубой ховер */
 }
 
-/* Активный файл */
+/* Активный файл - Плавающая пилюля */
 .nav-file-title.is-active {
-    background-color: rgba(138, 180, 248, 0.15); /* Прозрачный синий */
-    color: var(--text-accent) !important; /* Голубой текст */
+    /* background-color: var(--interactive-accent);  */
+    color: var(--text-accent) !important; 
     font-weight: 500;
 }
 
-/* Иконки файлов */
+/* Иконки */
 body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tree-text)::before {
     content: "";
     display: inline-block;
     width: 14px; height: 14px;
-    margin-right: 8px;
-    background-color: #c0c0c0; /* Цвет иконки под текст */
+    margin-right: 10px;
+    background-color: var(--text-muted);
     -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>') no-repeat center;
     -webkit-mask-size: contain;
     opacity: 0.7;
@@ -182,106 +183,111 @@ body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tre
 }
 
 /* ==========================================================================
-   4. LISTS & CHECKBOXES (FIX FOR BUG)
+   4. LISTS & CHECKBOXES (BUG FREE)
    ========================================================================== */
 
-/* Режим чтения */
-.markdown-preview-view li {
-    margin-bottom: 0.6em !important;
-}
-
-/* Режим редактирования (Padding Fix) */
+/* Fix списка в режиме редактирования */
 .markdown-source-view.is-live-preview .HyperMD-list-line {
-    padding-bottom: 0.6em !important;
+    padding-bottom: 0.7em !important;
     margin-bottom: 0 !important;
 }
+.markdown-preview-view li {
+    margin-bottom: 0.7em !important;
+}
 
-/* Круглые чекбоксы */
+/* Чекбоксы - Круглые, тонкие */
 input[type=checkbox] {
     -webkit-appearance: none;
     appearance: none;
     border-radius: 50%;
-    border: 2px solid #9aa0a6;
-    width: 16px;
-    height: 16px;
+    border: 1.5px solid var(--text-muted);
+    width: 18px;
+    height: 18px;
     position: relative;
-    top: 3px;
+    top: 4px;
     cursor: pointer;
+    background-color: transparent;
 }
 input[type=checkbox]:checked {
     background-color: var(--text-accent);
     border-color: var(--text-accent);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e1f20'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23131314'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
 }
 
 /* ==========================================================================
-   5. CODE BLOCKS (CARDS)
+   5. CODE & CARDS (AI STUDIO STYLE)
    ========================================================================== */
 
-/* Карточки цитат */
+/* Цитаты - Мягкие блоки */
 blockquote {
-    border-left: 3px solid var(--text-accent);
-    background-color: #292a2d;
-    border-radius: 0 var(--radius-m) var(--radius-m) 0;
-    padding: 10px 20px;
-    margin: 1em 0;
-    color: var(--text-muted);
-    font-style: italic;
+    border: none;
+    background-color: #1e1f20;
+    border-radius: var(--radius-m);
+    padding: 16px 24px;
+    margin: 1.5em 0;
+    color: var(--text-normal);
+    font-style: normal; /* В AI Studio обычный шрифт */
+    border-left: 4px solid var(--text-accent);
 }
 
-/* Инлайн код */
+/* Инлайн код - Пилюли */
 .markdown-source-view.is-live-preview .cm-inline-code,
 .markdown-reading-view code {
-    color: #e8eaed !important;
-    background-color: var(--code-background);
-    border: 1px solid var(--code-border-color);
-    padding: 2px 6px;
-    border-radius: 6px;
+    color: var(--text-accent) !important;
+    background-color: #1e1f20;
+    border: 1px solid #333;
+    padding: 2px 5px;
+    /* border-radius: 10px;  */
     font-family: var(--font-family-code);
     font-size: 0.85em;
 }
 
-/* Блоки кода (Скругленные) */
-.markdown-reading-view pre {
-    border: 1px solid var(--code-border-color);
-    border-radius: var(--radius-m);
-    padding: 15px;
+/* Блоки кода */
+.markdown-reading-view pre,
+.markdown-source-view.is-live-preview .HyperMD-codeblock {
     background-color: var(--code-background);
+    font-family: var(--font-family-code);
 }
-/* Редактор кода */
+
+.markdown-reading-view pre {
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-m);
+    padding: 20px;
+}
+
+/* Скругления в редакторе */
 .markdown-source-view.is-live-preview .HyperMD-codeblock-begin {
-    border-top: 1px solid var(--code-border-color);
-    border-left: 1px solid var(--code-border-color);
-    border-right: 1px solid var(--code-border-color);
+    border-top: 1px solid var(--background-modifier-border);
+    border-left: 1px solid var(--background-modifier-border);
+    border-right: 1px solid var(--background-modifier-border);
     border-top-left-radius: var(--radius-m);
     border-top-right-radius: var(--radius-m);
-    padding-top: 10px;
+    padding-top: 5px;
     background-color: var(--code-background);
 }
 .markdown-source-view.is-live-preview .HyperMD-codeblock {
-    border-left: 1px solid var(--code-border-color);
-    border-right: 1px solid var(--code-border-color);
-    background-color: var(--code-background);
+    border-left: 1px solid var(--background-modifier-border);
+    border-right: 1px solid var(--background-modifier-border);
 }
 .markdown-source-view.is-live-preview .HyperMD-codeblock-end {
-    border-bottom: 1px solid var(--code-border-color);
-    border-left: 1px solid var(--code-border-color);
-    border-right: 1px solid var(--code-border-color);
+    border-bottom: 1px solid var(--background-modifier-border);
+    border-left: 1px solid var(--background-modifier-border);
+    border-right: 1px solid var(--background-modifier-border);
     border-bottom-left-radius: var(--radius-m);
     border-bottom-right-radius: var(--radius-m);
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     background-color: var(--code-background);
 }
 
-/* Цвета кода (VS Code) */
+/* Подсветка (Принудительная) */
 .cm-s-obsidian span.cm-comment { color: var(--code-comment) !important; }
 .cm-s-obsidian span.cm-string { color: var(--code-string) !important; }
 .cm-s-obsidian span.cm-keyword { color: var(--code-keyword) !important; }
 .cm-s-obsidian span.cm-def { color: var(--code-function) !important; }
 .cm-s-obsidian span.cm-property { color: var(--code-property) !important; }
 .cm-s-obsidian span.cm-number { color: var(--code-value) !important; }
-.cm-s-obsidian span.cm-operator { color: var(--code-operator) !important; }
 
-/* Скроллбар (Тонкий) */
-::-webkit-scrollbar { width: 8px; height: 8px; background: transparent; }
-::-webkit-scrollbar-thumb { background: #5f6368; border-radius: 4px; border: 2px solid var(--background-primary); }
+/* Скроллбар (Минимализм) */
+::-webkit-scrollbar { width: 10px; height: 10px; background: transparent; }
+::-webkit-scrollbar-thumb { background: #444746; border-radius: 10px; border: 3px solid var(--background-primary); }
+::-webkit-scrollbar-thumb:hover { background: #5f6368; }
