@@ -79,10 +79,24 @@ body {
   color: #b2b2b2 !important;
 }
 
-.markdown-source-view.is-live-preview .HyperMD-list-line,
+/* .markdown-source-view.is-live-preview .HyperMD-list-line,
 .markdown-preview-view li {
-  line-height: 1.4 !important; /* адекватно для переносов */
-  margin-bottom: 1.0em !important; /* регулирует расстояние между элементами списка */
+  line-height: 1.4 !important; 
+  margin-bottom: 1.0em !important; 
+} */
+
+/* Настройки для режима Чтения (Preview) - тут margin работает нормально */
+.markdown-preview-view li {
+  line-height: 1.4 !important;
+  margin-bottom: 1.0em !important;
+}
+
+/* Настройки для режима Редактирования (Live Preview) */
+.markdown-source-view.is-live-preview .HyperMD-list-line {
+  line-height: 1.4 !important;
+  /* Используем padding вместо margin, чтобы не ломать выделение мышью */
+  padding-bottom: 1.0em !important; 
+  margin-bottom: 0 !important;
 }
 
 /* HyperMD-list-line HyperMD-list-line-1 cm-line */
