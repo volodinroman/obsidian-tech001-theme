@@ -5,7 +5,7 @@
 
 body {
     /* --- AI Studio Palette --- */
-    --background-primary: #131314;   /* Deepest Dark (AI Studio Background) */
+    --background-primary: #191919;   /* Deepest Dark (AI Studio Background) */
     --background-secondary: #1e1f20; /* Surfaces / Sidebar */
     --background-secondary-alt: #000000; /* Top header blend */
     --background-modifier-border: #444746; /* Subtle borders */
@@ -101,14 +101,21 @@ body {
    ========================================================================== */
 
 /* Верхняя панель сливается с темным фоном */
-/* .titlebar {
-    background-color: var(--background-primary) !important;
-} */
+.titlebar {
+    background-color: transparent !important;
+    z-index: 0; /* На всякий случай опускаем уровень */
+}
+
 .workspace-tab-header-container {
-    /* background-color: var(--background-primary) !important; */
+    background-color: var(--background-primary) !important; /* Цвет фона */
     border-bottom: 1px solid var(--background-modifier-border);
     /* padding-top: 5px; */
 }
+
+.titlebar-button-container {
+    background-color: var(--background-primary) !important; 
+}
+
 
 /* Вкладки - Минималистичный текст */
 .workspace-tab-header {
@@ -137,6 +144,43 @@ body {
 
 .titlebar-button:hover {
     background-color: rgba(255,255,255, 0.08) !important;
+}
+
+/* ==========================================================================
+   FIX: LEFT RIBBON & SIDEBAR (SEAMLESS LOOK)
+   ========================================================================== */
+
+/* 1. Сама узкая полоска с иконками слева */
+/* .workspace-ribbon {
+    background-color: var(--background-primary) !important; 
+    border-right: 1px solid var(--background-modifier-border) !important; 
+} */
+
+/* 2. Кнопка переключения сайдбара (верхняя левая иконка "папка со стрелкой") */
+.sidebar-toggle-button {
+    background-color: var(--background-primary) !important; /* Убираем фон кнопки, чтобы она слилась */
+    border: none !important;
+    padding-top: 10px; /* Чуть выравниваем, если нужно */
+}
+
+/* При наведении на иконку в углу */
+.sidebar-toggle-button:hover {
+    background-color: var(--background-primary-hover) !important;
+}
+
+/* 3. Левая панель, где список файлов (чтобы она тоже совпадала по цвету) */
+.workspace-split.mod-left-split {
+    background-color: var(--background-primary) !important;
+}
+
+/* Иконки в риббоне (Graph view, Settings и т.д.) */
+.workspace-ribbon-collapse-btn, 
+.side-dock-ribbon-action {
+    color: var(--text-muted) !important;
+}
+.side-dock-ribbon-action:hover {
+    color: var(--text-normal) !important;
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 /* ==========================================================================
