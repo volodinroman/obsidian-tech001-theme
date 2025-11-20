@@ -1,6 +1,6 @@
 /* ==========================================================================
-   THEME: TECH001 DARK 
-   STYLE: Deep Dark, Pill Shapes, Minimalist
+   THEME: TECH001 DARK (HIGH CONTRAST VERSION)
+   STYLE: Deep Dark, Pill Shapes, Minimalist, Bright Headers
    AUTHOR: Roman Volodin
    ========================================================================== */
 
@@ -21,16 +21,23 @@ body {
     --font-text: 'Google Sans', 'Roboto', 'Inter', sans-serif;
     --font-family-code: 'Google Sans Code', 'JetBrains Mono', monospace;
 
-    /* --- Text Colors --- */
-    --text-normal: #c4c7c5;              /* Tech001 Neutral 200 */
-    --text-muted: #8e918f;               /* Tech001 Neutral 500 */
-    --text-faint: #444746;               /* Low contrast */
+    /* --- Text Colors (HIERARCHY UPDATE) --- */
     
-    /* --- Headings --- */
-    --h1-color: #e3e3e3;
-    --h2-color: #e3e3e3;
-    --h3-color: #c4c7c5;
-    --h4-color: #c4c7c5;
+    /* 1. Main Text - GRAY (Muted) */
+    /* Make it darker so it doesn't compete with headers */
+    --text-normal: #bfbfbf;              
+    --text-muted: #757575;               
+    --text-faint: #444746;  
+    --text-navbar: #afafaf;            /* Navbar text color */             
+    
+    /* 2. Headers - Bright White */
+    /* Maximum contrast for better readability */
+    --h1-color: #ffffff;
+    --h2-color: #ffffff;
+    --h3-color: #f5f5f5;
+    --h4-color: #f5f5f5;
+    --h5-color: #f5f5f5;
+    --h6-color: #f5f5f5;
     
     --h1-size: 2.2em; --h1-weight: 400;
     --h2-size: 1.6em; --h2-weight: 400;
@@ -73,6 +80,25 @@ body {
     line-height: 1.7;
     font-size: 16px;
     color: var(--text-normal); 
+}
+
+/* --- TEXT HIERARCHY ENFORCEMENT --- */
+
+/* 1. Headers are Bright White */
+.cm-header, h1, h2, h3, h4, h5, h6 {
+    color: var(--h1-color) !important;
+    font-weight: 300 !important; /* Чуть жирнее для контраста */
+}
+
+/* 2. Body text, Lists, Paragraphs are Muted Gray */
+/* This rule ensures that regular text is gray */
+.cm-line, p, li, ul, ol {
+    color: var(--text-normal) !important;
+}
+
+/* 3. Bold text stands out (White) */
+strong, b, .cm-strong {
+    color: #e3e3e3 !important; /* Bold text is slightly lighter than normal */
 }
 
 /* Minimalist Scrollbars */
@@ -194,7 +220,7 @@ body {
 /* Sidebar Navigation Items (Files/Folders) */
 .nav-folder-title, .nav-file-title {
     font-size: 0.95em;
-    color: var(--text-muted);
+    color: var(--text-navbar);
     border-radius: var(--radius-l); /* Pill Shape */
     padding: 6px 12px;
     margin: 2px 8px;
@@ -342,10 +368,10 @@ body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tre
     height: 14px;
     margin-right: 6px;
     
-    background-color: var(--text-muted);
+    background-color: var(--text-navbar);
     
     /* Icon Mask */
-    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>') no-repeat center;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>') no-repeat center;
     -webkit-mask-size: contain;
     opacity: 0.7;
 
