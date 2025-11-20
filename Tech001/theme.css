@@ -1,135 +1,159 @@
 /* ==========================================================================
-   GOOGLE AI STUDIO DARK THEME (Deep Dark, Pill Shapes, Gemini Blue)
+   THEME: TECH001 DARK 
+   STYLE: Deep Dark, Pill Shapes, Minimalist
+   AUTHOR: Roman Volodin
    ========================================================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
 
+/* ==========================================================================
+   1. VARIABLES & PALETTE
+   ========================================================================== */
 body {
-    /* --- AI Studio Palette --- */
-    --background-primary: #191919;   /* Deepest Dark (AI Studio Background) */
-    --background-secondary: #1e1f20; /* Surfaces / Sidebar */
+    /* --- Color Palette (Tech001 / Material Design 3) --- */
+    --background-primary: #191919;       /* Deepest Dark (Main Background) */
+    --background-secondary: #1e1f20;     /* Sidebar & Surfaces */
     --background-secondary-alt: #000000; /* Top header blend */
     --background-modifier-border: #444746; /* Subtle borders */
-    
+
     /* --- Typography --- */
     --font-interface: 'Google Sans', 'Roboto', 'Inter', sans-serif;
     --font-text: 'Google Sans', 'Roboto', 'Inter', sans-serif;
+    --font-family-code: 'Google Sans Code', 'JetBrains Mono', monospace;
+
+    /* --- Text Colors --- */
+    --text-normal: #c4c7c5;              /* Tech001 Neutral 200 */
+    --text-muted: #8e918f;               /* Tech001 Neutral 500 */
+    --text-faint: #444746;               /* Low contrast */
     
-    /* Заголовки */
+    /* --- Headings --- */
     --h1-color: #e3e3e3;
     --h2-color: #e3e3e3;
     --h3-color: #c4c7c5;
     --h4-color: #c4c7c5;
     
-    /* Текст */
-    --text-normal: #c4c7c5;          /* Google Neutral 200 */
-    --text-muted: #8e918f;           /* Google Neutral 500 */
-    --text-faint: #444746;           
-    
-    /* Gemini Accents */
-    --text-accent: #A8C7FA;          /* Google Blue 200 (Gemini Blue) */
-    --text-accent-hover: #D3E3FD;
-    --interactive-accent: #3b5260;   /* Deep Blue for backgrounds */
-    --caret-color: #A8C7FA; 
-
-    /* --- Sizes --- */
     --h1-size: 2.2em; --h1-weight: 400;
     --h2-size: 1.6em; --h2-weight: 400;
     --h3-size: 1.2em; --h3-weight: 500;
+
+    /* --- Accents (Tech001 Blue) --- */
+    --text-accent: #A8C7FA;              /* Tech001 Blue 200 */
+    --text-accent-hover: #D3E3FD;
+    --interactive-accent: #3b5260;       /* Deep Blue background for active items */
+    --caret-color: #A8C7FA;
+
+    /* --- Shapes & UI --- */
+    --radius-s: 4px;
+    --radius-m: 12px;                    /* Soft rounded corners */
+    --radius-l: 24px;                    /* Full pill shape */
     
-    /* --- Coding --- */
-    --code-background: #1e1f20;      /* Matching surface color */
+    /* --- Code Syntax Highlighting (Pastel/Vivid Mix) --- */
+    --code-background: #1e1f20;
     --code-border-color: #444746;
-    --font-family-code: 'Google Sans Code',  monospace;
     --code-size: 0.9em;
     
-    /* Syntax Highlighting (Pastel/Vivid mix) */
     --code-normal: #e3e3e3;
     --code-comment: #8e918f;
-    --code-string: #f28b82;          /* Pastel Red */
-    --code-function: #A8C7FA;        /* Pastel Blue */
-    --code-keyword: #c58af9;         /* Pastel Purple */
+    --code-string: #f28b82;              /* Pastel Red */
+    --code-function: #A8C7FA;            /* Pastel Blue */
+    --code-keyword: #c58af9;             /* Pastel Purple */
     --code-operator: #c4c7c5;
-    --code-property: #81c995;        /* Pastel Green */
-    --code-value: #fdd663;           /* Pastel Yellow */
-    
-    /* Shapes */
-    --radius-s: 4px;
-    --radius-m: 12px;                /* More rounded */
-    --radius-l: 24px;                /* Full pill shape */
+    --code-property: #81c995;            /* Pastel Green */
+    --code-value: #fdd663;               /* Pastel Yellow */
 }
 
 /* ==========================================================================
-   1. LAYOUT & TYPOGRAPHY
+   2. GLOBAL LAYOUT & SCROLLBARS
    ========================================================================== */
 
-/* Шрифт везде */
-.markdown-source-view, .markdown-preview-view, .nav-file-title, .nav-folder-title {
-    font-family: var(--font-interface);
-}
-
-/* Ограничение ширины (Focus) */
-.markdown-source-view .cm-scroller,
-.markdown-preview-view { 
-    max-width: 1400px !important; /* Чуть уже для AI-style */
-    margin: 0 auto !important; 
-    width: 100%;
-}
-
-/* Текст редактора */
+/* Base Fonts & Line Height */
 .markdown-source-view, 
 .markdown-preview-view { 
-    line-height: 1.7; /* Больше воздуха */
+    font-family: var(--font-text);
+    line-height: 1.7;
     font-size: 16px;
     color: var(--text-normal); 
 }
 
-/* Приглушение обычного текста */
-.cm-line, p, li {
-    color: var(--text-normal) !important;
+/* Minimalist Scrollbars */
+::-webkit-scrollbar { 
+    width: 10px; 
+    height: 10px; 
+    background: transparent; 
 }
-
-/* Заголовки */
-.cm-header, h1, h2, h3 {
-    color: var(--h1-color) !important;
-    letter-spacing: normal;
-    margin-top: 2em !important;
-    margin-bottom: 1em !important;
+::-webkit-scrollbar-thumb { 
+    background: #444746; 
+    border-radius: 10px; 
+    border: 3px solid var(--background-primary); 
+}
+::-webkit-scrollbar-thumb:hover { 
+    background: #5f6368; 
 }
 
 /* ==========================================================================
-   2. HEADER & TABS (MINIMALIST)
+   3. NOTION-STYLE CENTERED LAYOUT
    ========================================================================== */
 
-/* Верхняя панель сливается с темным фоном */
+/* Scroller takes full width (Scrollbar stays on the right edge) */
+.markdown-source-view.mod-cm6 .cm-scroller,
+.markdown-preview-view {
+    max-width: 100% !important; 
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-top: 50px !important; /* Top spacing */
+}
+
+/* Centered Content Container */
+.markdown-source-view.mod-cm6 .cm-sizer, /* Live Preview */
+.markdown-preview-sizer {                /* Reading Mode */
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Ensure elements don't overflow */
+.markdown-preview-view .markdown-preview-sizer hr,
+.markdown-preview-view .markdown-preview-sizer table {
+    max-width: 100%;
+}
+
+/* ==========================================================================
+   4. WINDOW TITLEBAR & MAIN TABS
+   ========================================================================== */
+
+/* Transparent Titlebar (Z-index fix to not overlay tabs) */
 .titlebar {
     background-color: transparent !important;
-    z-index: 0; /* На всякий случай опускаем уровень */
+    z-index: 0; 
 }
 
-.workspace-tab-header-container {
-    background-color: var(--background-primary) !important; /* Цвет фона */
-    border-bottom: 1px solid var(--background-modifier-border);
-    /* padding-top: 5px; */
-}
-
+/* Window Controls (Minimize/Close) Background */
 .titlebar-button-container {
-    background-color: var(--background-primary) !important; 
+    background-color: var(--background-secondary) !important; 
+}
+.titlebar-button:hover {
+    background-color: rgba(255,255,255, 0.08) !important;
 }
 
+/* Main Tab Container */
+.workspace-tab-header-container {
+    background-color: var(--background-secondary) !important;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
 
-/* Вкладки - Минималистичный текст */
+/* Individual Tabs */
 .workspace-tab-header {
     background-color: transparent !important;
     color: var(--text-muted);
     border-radius: var(--radius-m) var(--radius-m) 0 0;
     margin-right: 4px;
-    /* transition: all 0.1s ease; */
 }
 
-/* Активная вкладка - Подчеркивание Gemini */
+/* Active Tab Styling */
 .workspace-tab-header.is-active {
     background-color: var(--background-primary) !important; 
-    /* color: var(--text-accent) !important; */
     font-weight: 500;
     box-shadow: none !important;
     border-top: 1px solid var(--text-faint); 
@@ -137,101 +161,75 @@ body {
     border-right: 1px solid var(--text-faint); 
 }
 
+/* Hover Tab */
 .workspace-tab-header:not(.is-active):hover {
     color: var(--text-normal);
     background-color: rgba(255,255,255, 0.03) !important;
 }
 
-.titlebar-button:hover {
-    background-color: rgba(255,255,255, 0.08) !important;
-}
-
 /* ==========================================================================
-   FIX: LEFT RIBBON & SIDEBAR (SEAMLESS LOOK)
+   5. SIDEBAR & RIBBON
    ========================================================================== */
 
-/* 1. Сама узкая полоска с иконками слева */
-/* .workspace-ribbon {
-    background-color: var(--background-primary) !important; 
-    border-right: 1px solid var(--background-modifier-border) !important; 
-} */
-
-/* 2. Кнопка переключения сайдбара (верхняя левая иконка "папка со стрелкой") */
+/* Toggle Button (Top-Left Corner) */
 .sidebar-toggle-button {
-    background-color: var(--background-primary) !important; /* Убираем фон кнопки, чтобы она слилась */
-    border: none !important;
-    padding-top: 10px; /* Чуть выравниваем, если нужно */
-}
-
-/* При наведении на иконку в углу */
-.sidebar-toggle-button:hover {
-    background-color: var(--background-primary-hover) !important;
-}
-
-/* 3. Левая панель, где список файлов (чтобы она тоже совпадала по цвету) */
-.workspace-split.mod-left-split {
-    background-color: var(--background-primary) !important;
-}
-
-/* Иконки в риббоне (Graph view, Settings и т.д.) */
-.workspace-ribbon-collapse-btn, 
-.side-dock-ribbon-action {
+    background-color: var(--background-secondary) !important;
+    border-bottom: 1px solid var(--background-modifier-border) !important;
+    
+    /* Center Alignment */
+    margin: 1px auto !important; 
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     color: var(--text-muted) !important;
 }
-.side-dock-ribbon-action:hover {
-    color: var(--text-normal) !important;
-    background-color: rgba(255, 255, 255, 0.08);
+
+.sidebar-toggle-button:hover {
+    color: var(--text-accent) !important;
+    background-color: var(--background-secondary) !important;
 }
 
-/* ==========================================================================
-   3. SIDEBAR (PILL SHAPED NAVIGATION)
-   ========================================================================== */
-
-/* Контейнер */
+/* Sidebar Navigation Items (Files/Folders) */
 .nav-folder-title, .nav-file-title {
     font-size: 0.95em;
     color: var(--text-muted);
-    /* Полная пилюля (Pill shape) */
-    border-radius: var(--radius-l); 
+    border-radius: var(--radius-l); /* Pill Shape */
     padding: 6px 12px;
-    margin: 2px 8px; /* Отступы со всех сторон */
-    /* transition: all 0.2s ease; */
+    margin: 2px 8px;
 }
 
-/* Hover */
 .nav-file-title:hover, .nav-folder-title:hover {
     color: var(--text-normal);
-    background-color: rgba(168, 199, 250, 0.08); /* Слабый голубой ховер */
+    background-color: rgba(168, 199, 250, 0.08); 
 }
 
-/* Активный файл - Плавающая пилюля */
+/* Active File */
 .nav-file-title.is-active {
-    /* background-color: var(--interactive-accent);  */
     color: var(--text-accent) !important; 
     font-weight: 500;
 }
 
-/* Иконки */
-body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tree-text)::before {
-    content: "";
-    display: inline-block;
-    width: 14px; height: 14px;
-    margin-right: 10px;
-    background-color: var(--text-muted);
-    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>') no-repeat center;
-    -webkit-mask-size: contain;
-    opacity: 0.7;
+/* Sidebar Panel Buttons (Files, Search, etc. - Left/Right Panels) */
+.mod-left-split .workspace-tab-header,
+.mod-right-split .workspace-tab-header {
+    background-color: transparent !important;
+    border: none !important;
 }
-.nav-file-title.is-active .nav-file-title-content::before {
-    background-color: var(--text-accent);
-    opacity: 1;
+
+.mod-left-split .workspace-tab-header.is-active,
+.mod-right-split .workspace-tab-header.is-active {
+    background-color: rgba(168, 199, 250, 0.15) !important;
+    color: var(--text-accent) !important;
+    border-top: none !important;
 }
 
 /* ==========================================================================
-   4. LISTS & CHECKBOXES (BUG FREE)
+   6. EDITOR STYLES (LISTS, QUOTES, CHECKBOXES)
    ========================================================================== */
 
-/* Fix списка в режиме редактирования */
+/* List Padding Fix (Prevents selection glitch in Live Preview) */
 .markdown-source-view.is-live-preview .HyperMD-list-line {
     padding-bottom: 0.7em !important;
     margin-bottom: 0 !important;
@@ -240,7 +238,19 @@ body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tre
     margin-bottom: 0.7em !important;
 }
 
-/* Чекбоксы - Круглые, тонкие */
+/* Blockquotes (Card Style) */
+blockquote {
+    border: none;
+    background-color: #1e1f20;
+    border-radius: var(--radius-m);
+    padding: 16px 24px;
+    margin: 1.5em 0;
+    color: var(--text-normal);
+    font-style: normal;
+    border-left: 4px solid var(--text-accent);
+}
+
+/* Round Checkboxes */
 input[type=checkbox] {
     -webkit-appearance: none;
     appearance: none;
@@ -260,34 +270,20 @@ input[type=checkbox]:checked {
 }
 
 /* ==========================================================================
-   5. CODE & CARDS (AI STUDIO STYLE)
+   7. CODE BLOCKS & INLINE CODE
    ========================================================================== */
 
-/* Цитаты - Мягкие блоки */
-blockquote {
-    border: none;
-    background-color: #1e1f20;
-    border-radius: var(--radius-m);
-    padding: 16px 24px;
-    margin: 1.5em 0;
-    color: var(--text-normal);
-    font-style: normal; /* В AI Studio обычный шрифт */
-    border-left: 4px solid var(--text-accent);
-}
-
-/* Инлайн код - Пилюли */
+/* Inline Code (Pill Style) */
 .markdown-source-view.is-live-preview .cm-inline-code,
 .markdown-reading-view code {
     color: var(--text-accent) !important;
     background-color: #1e1f20;
     border: 1px solid #333;
     padding: 2px 5px;
-    /* border-radius: 10px;  */
     font-family: var(--font-family-code);
-    /* font-size: 0.85em; */
 }
 
-/* Блоки кода */
+/* Code Blocks Container */
 .markdown-reading-view pre,
 .markdown-source-view.is-live-preview .HyperMD-codeblock {
     background-color: var(--code-background);
@@ -300,7 +296,7 @@ blockquote {
     padding: 20px;
 }
 
-/* Скругления в редакторе */
+/* Live Preview Code Borders (Rounded) */
 .markdown-source-view.is-live-preview .HyperMD-codeblock-begin {
     border-top: 1px solid var(--background-modifier-border);
     border-left: 1px solid var(--background-modifier-border);
@@ -324,7 +320,7 @@ blockquote {
     background-color: var(--code-background);
 }
 
-/* Подсветка (Принудительная) */
+/* Syntax Highlighting Overrides */
 .cm-s-obsidian span.cm-comment { color: var(--code-comment) !important; }
 .cm-s-obsidian span.cm-string { color: var(--code-string) !important; }
 .cm-s-obsidian span.cm-keyword { color: var(--code-keyword) !important; }
@@ -332,7 +328,153 @@ blockquote {
 .cm-s-obsidian span.cm-property { color: var(--code-property) !important; }
 .cm-s-obsidian span.cm-number { color: var(--code-value) !important; }
 
-/* Скроллбар (Минимализм) */
-::-webkit-scrollbar { width: 10px; height: 10px; background: transparent; }
-::-webkit-scrollbar-thumb { background: #444746; border-radius: 10px; border: 3px solid var(--background-primary); }
-::-webkit-scrollbar-thumb:hover { background: #5f6368; }
+/* ==========================================================================
+   8. CUSTOM FILE ICONS & ALIGNMENT
+   ========================================================================== */
+
+/* --- A. Standard File Icon (Paper Sheet) --- */
+body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "";
+    display: inline-block;
+    
+    /* Fixed Dimensions for Alignment */
+    width: 16px; 
+    height: 14px;
+    margin-right: 6px;
+    
+    background-color: var(--text-muted);
+    
+    /* Icon Mask */
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>') no-repeat center;
+    -webkit-mask-size: contain;
+    opacity: 0.7;
+
+    /* Vertical Alignment Fixes */
+    vertical-align: middle;
+    position: relative;     
+    top: -1px;
+}
+
+/* Active File Icon Color */
+.nav-file-title.is-active .nav-file-title-content::before {
+    background-color: var(--text-accent);
+    opacity: 1;
+}
+
+/* --- B. Code File Badges (Text Icons) --- */
+
+/* High Specificity Selectors to override default icons */
+body:not(.remove-file-icons) .nav-file-title[data-path$=".py"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".js"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".ts"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".tsx"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".html"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".css"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".json"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".cpp"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".c"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".cs"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".go"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".sh"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".yaml"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".lua"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".php"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".yml"] .nav-file-title-content:not(.mk-tree-text)::before {
+    
+    /* Reset Mask and Background */
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    background-color: transparent !important;
+    
+    /* Text Styling */
+    font-family: 'Google Sans', 'Consolas', monospace !important;
+    font-weight: 900 !important;
+    font-size: 10px !important;
+    letter-spacing: 0px !important;
+    
+    /* Alignment (Must match standard icon width) */
+    display: inline-flex !important;
+    align-items: center !important;
+    
+    width: 16px !important;       
+    height: 100% !important;
+    margin-right: 6px !important; 
+    opacity: 1 !important;
+    
+    content: "XYZ" !important; /* Fallback */
+}
+
+/* --- Specific Language Badges --- */
+
+/* Python */
+body:not(.remove-file-icons) .nav-file-title[data-path$=".py"] .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "PY" !important;
+    color: #ebe572 !important;
+}
+
+/* Lua */
+body:not(.remove-file-icons) .nav-file-title[data-path$=".lua"] .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "LU" !important;
+    color: #58de92 !important;
+}
+
+/* JavaScript */
+body:not(.remove-file-icons) .nav-file-title[data-path$=".js"] .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "JS" !important;
+    color: #F7DF1E !important;
+}
+
+/* TypeScript */
+body:not(.remove-file-icons) .nav-file-title[data-path$=".ts"] .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "TS" !important;
+    color: #3178C6 !important;
+}
+
+/* HTML / CSS */
+body:not(.remove-file-icons) .nav-file-title[data-path$=".html"] .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "HTM" !important;
+    color: #E34F26 !important;
+    font-size: 10px !important;
+}
+body:not(.remove-file-icons) .nav-file-title[data-path$=".css"] .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "CSS" !important;
+    color: #1572B6 !important;
+    font-size: 10px !important;
+}
+
+/* C / C++ / C# */
+body:not(.remove-file-icons) .nav-file-title[data-path$=".cpp"] .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "CPP" !important;
+    color: #76b0dc !important;
+    font-size: 10px !important;
+}
+body:not(.remove-file-icons) .nav-file-title[data-path$=".c"] .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "C" !important;
+    color: #A8B9CC !important;
+}
+body:not(.remove-file-icons) .nav-file-title[data-path$=".cs"] .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "C#" !important;
+    color: #9B4F96 !important;
+}
+
+/* JSON / YAML */
+body:not(.remove-file-icons) .nav-file-title[data-path$=".json"] .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "{ }" !important;
+    color: #858585 !important;
+}
+body:not(.remove-file-icons) .nav-file-title[data-path$=".yaml"] .nav-file-title-content:not(.mk-tree-text)::before,
+body:not(.remove-file-icons) .nav-file-title[data-path$=".yml"] .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "YML" !important;
+    color: #CB171E !important;
+    font-size: 10px !important;
+}
+
+/* Others */
+body:not(.remove-file-icons) .nav-file-title[data-path$=".go"] .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "GO" !important;
+    color: #00ADD8 !important;
+}
+body:not(.remove-file-icons) .nav-file-title[data-path$=".sh"] .nav-file-title-content:not(.mk-tree-text)::before {
+    content: ">_" !important;
+    color: #4EAA25 !important;
+}
