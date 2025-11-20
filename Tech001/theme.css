@@ -168,24 +168,45 @@ strong, b, .cm-strong {
 /* ==========================================================================
    3. CENTERED LAYOUT
    ========================================================================== */
+
+/* Global top padding for all modes */
 .markdown-source-view.mod-cm6 .cm-scroller,
 .markdown-preview-view {
-    max-width: 100% !important; width: 100% !important;
-    margin: 0 !important; padding: 0 !important;
     padding-top: 50px !important;
 }
 
-.markdown-source-view.mod-cm6 .cm-sizer,
-.markdown-preview-sizer {
+/* SCENARIO 1: Readable Line Length ON
+   Obsidian itself centers the content. We only need to expand it.
+   No margin-left/auto here to avoid breaking native behavior. */
+/* .is-readable-line-width .cm-sizer,
+.is-readable-line-width .markdown-preview-sizer {
     max-width: 1100px !important;
-    margin: 0 auto !important;
-    padding-left: 20px; padding-right: 20px;
+    width: 100% !important;
+} */
+
+/* SCENARIO 2: Readable Line Length OFF
+   Obsidian tries to stretch content to 100%. 
+   Here we forcibly enable centering. */
+.markdown-source-view.mod-cm6:not(.is-readable-line-width) .cm-sizer,
+.markdown-preview-view:not(.is-readable-line-width) .markdown-preview-sizer {
+    max-width: 1100px !important;
+    width: 100% !important;
+    
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-inline: auto !important;
+    
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
 }
 
+/* Fix for tables and horizontal rules not exceeding container width */
 .markdown-preview-view .markdown-preview-sizer hr,
 .markdown-preview-view .markdown-preview-sizer table {
-    max-width: 100%;
+    max-width: 100% !important;
 }
+
 
 /* ==========================================================================
    4. WINDOW TITLEBAR & MAIN TABS
