@@ -10,6 +10,10 @@
    1. VARIABLES & PALETTE
    ========================================================================== */
 body {
+    --nav-indentation-guide-color: transparent !important;
+    --nav-indentation-guide-width: 0px !important;
+
+    
     /* --- Color Palette (Tech001 / Material Design 3) --- */
     --background-primary: #191919;       /* Deepest Dark (Main Background) */
     --background-secondary: #1e1f20;     /* Sidebar & Surfaces */
@@ -233,8 +237,7 @@ strong, b, .cm-strong {
 
 /* Active File */
 .nav-file-title.is-active {
-    color: var(--text-accent) !important; 
-    font-weight: 500;
+    color: var(--text-navbar) !important; 
 }
 
 /* Sidebar Panel Buttons (Files, Search, etc. - Left/Right Panels) */
