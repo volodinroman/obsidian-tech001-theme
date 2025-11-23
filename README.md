@@ -41,7 +41,7 @@ Whether you are writing documentation in the **Deep Dark** mode (inspired by Gem
 *   **Code Block Headers:** Stylish headers for code blocks in Live Preview mode.
 
 ### 📝 Typography & Layout
-*   **Notion-Style Centering:** Content is centered with a fixed width (max 1100px) while the scrollbar stays on the far right edge.
+*   **Notion-Style Centering:** Content is centered with a fixed width while the scrollbar stays on the far right edge.
 *   **Visual Hierarchy:**
     *   **Headers** are bright/high-contrast.
     *   **Body text** is slightly muted to reduce eye strain.
