@@ -2,6 +2,8 @@
 	"name": "Tech001",
 	"version": "1.0.0",
 	"minAppVersion": "1.0.0",
-	"author": "RomanVolodin",
-	"authorUrl": "https://romanvolodin.com"
+	"author": "Roman Volodin",
+	"authorUrl": "https://romanvolodin.com",
+	"fundingUrl": "", 
+  	"isDesktopOnly": false
 }
