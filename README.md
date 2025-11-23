@@ -34,8 +34,6 @@ Whether you are writing documentation in the **Deep Dark** mode (inspired by Gem
 *   **Dual Personality:**
     *   🌑 **Dark Mode:** Deep gray backgrounds, pastel syntax highlighting, and "Gemini Blue" accents. Perfect for long writing sessions.
     *   ☀️ **Light Mode:** Clean white surfaces, high-contrast black headers, and Google Blue accents. Professional and crisp.
-*   **Pill-Shaped UI:** Navigation items, active states, and buttons feature modern rounded "pill" shapes.
-*   **Seamless Headers:** The title bar blends perfectly with the sidebar and tabs for a distraction-free interface.
 
 ### 💻 Developer Experience
 *   **Smart File Icons:** Automatically replaces generic file icons with **text badges** based on file extensions (e.g., `PY`, `JS`, `CPP`, `HTML`, `JSON`). No more guessing which file is which.
