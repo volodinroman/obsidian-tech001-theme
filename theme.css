@@ -1,0 +1,494 @@
+/* ==========================================================================
+   THEME: TECH001 (DARK & LIGHT SUPPORT)
+   STYLE: Deep Dark / Crisp Light, Pill Shapes, Minimalist
+   AUTHOR: Roman Volodin (Modified for Dual Mode)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* ==========================================================================
+   1. VARIABLES & PALETTE (THEME SWITCHER)
+   ========================================================================== */
+
+/* --- SHARED SETTINGS --- */
+body {
+    --nav-indentation-guide-color: transparent !important;
+    --nav-indentation-guide-width: 0px !important;
+    
+    --font-interface: 'Google Sans', 'Roboto', 'Inter', sans-serif;
+    --font-text: 'Google Sans', 'Roboto', 'Inter', sans-serif;
+    --font-family-code: 'Google Sans Code', 'JetBrains Mono', monospace;
+
+    /* Shapes */
+    --radius-s: 4px;
+    --radius-m: 12px;
+    --radius-l: 24px;
+    
+    --h1-size: 2.2em; --h1-weight: 400;
+    --h2-size: 1.6em; --h2-weight: 400;
+    --h3-size: 1.2em; --h3-weight: 500;
+    --code-size: 0.9em;
+}
+
+/* --- DARK THEME VARIABLES --- */
+body.theme-dark {
+    /* Backgrounds */
+    --background-primary: #191919;
+    --background-secondary: #1e1f20;
+    --background-secondary-alt: #000000;
+    --background-modifier-border: #444746;
+    --background-blockquote: #1e1f20;
+
+    /* Text */
+    --text-normal: #bfbfbf;
+    --text-muted: #757575;
+    --text-faint: #444746;
+    --text-navbar: #afafaf;
+    --text-bold: #e3e3e3;
+
+    /* Headers (Bright White) */
+    --h1-color: #ffffff;
+    --h2-color: #ffffff;
+    --h3-color: #f5f5f5;
+    --h4-color: #f5f5f5;
+    --h5-color: #f5f5f5;
+    --h6-color: #f5f5f5;
+
+    /* Accents */
+    --text-accent: #A8C7FA;        /* Blue 200 */
+    --text-accent-hover: #D3E3FD;
+    --interactive-accent: #3b5260; /* Deep Blue Bg */
+    --caret-color: #A8C7FA;
+    
+    /* Code */
+    --code-background: #1e1f20;
+    --code-border-color: #444746;
+    --code-normal: #e3e3e3;
+    --code-comment: #8e918f;
+    --code-string: #f28b82;
+    --code-function: #A8C7FA;
+    --code-keyword: #c58af9;
+    --code-operator: #c4c7c5;
+    --code-property: #81c995;
+    --code-value: #fdd663;
+    
+    /* UI Specific */
+    --scrollbar-thumb: #444746;
+    --tab-hover: rgba(255,255,255, 0.03);
+    --sidebar-hover: rgba(168, 199, 250, 0.08);
+}
+
+/* --- LIGHT THEME VARIABLES (NEW) --- */
+body.theme-light {
+    /* Backgrounds */
+    --background-primary: #f3f4f6;       /* Pure White */
+    --background-secondary: #e3e4e6;     /* Light Gray Surface */
+    --background-secondary-alt: #ffffff;
+    --background-modifier-border: #cfcfcf;
+    --background-blockquote: #f1f3f4;    /* Soft Gray for quotes */
+
+    /* Text */
+    --text-normal: #3c4043;              /* Google Gray 800 */
+    --text-muted: #5f6368;               /* Google Gray 700 */
+    --text-faint: #9aa0a6;
+    --text-navbar: #5f6368;
+    --text-bold: #202124;                /* Near Black for bold */
+
+    /* Headers (Dark for Contrast) */
+    --h1-color: #202124;
+    --h2-color: #202124;
+    --h3-color: #3c4043;
+    --h4-color: #3c4043;
+    --h5-color: #3c4043;
+    --h6-color: #3c4043;
+
+    /* Accents */
+    --text-accent: #1a73e8;              /* Google Blue 600 */
+    --text-accent-hover: #1557b0;
+    --interactive-accent: #e8f0fe;       /* Light Blue Wash */
+    --caret-color: #1a73e8;
+    
+    /* Code (High Contrast) */
+    --code-background: #f8f9fa;
+    --code-border-color: #dadce0;
+    --code-normal: #3c4043;
+    --code-comment: #70757a;
+    --code-string: #d93025;              /* Darker Red */
+    --code-function: #1a73e8;            /* Blue */
+    --code-keyword: #a142f4;             /* Purple */
+    --code-operator: #5f6368;
+    --code-property: #188038;            /* Green */
+    --code-value: #f29900;               /* Dark Orange/Gold */
+
+    /* UI Specific */
+    --scrollbar-thumb: #dadce0;
+    --tab-hover: rgba(0,0,0, 0.04);
+    --sidebar-hover: rgba(26, 115, 232, 0.1);
+}
+
+/* ==========================================================================
+   2. GLOBAL LAYOUT & SCROLLBARS
+   ========================================================================== */
+
+.markdown-source-view, 
+.markdown-preview-view { 
+    font-family: var(--font-text);
+    line-height: 1.7;
+    font-size: 16px;
+    color: var(--text-normal); 
+}
+
+/* --- TEXT HIERARCHY --- */
+.cm-header, h1, h2, h3, h4, h5, h6 {
+    color: var(--h1-color) !important;
+    font-weight: 300 !important;
+}
+
+.cm-line, p, li, ul, ol {
+    color: var(--text-normal) !important;
+}
+
+strong, b, .cm-strong {
+    color: var(--text-bold) !important; 
+}
+
+/* Minimalist Scrollbars */
+::-webkit-scrollbar { 
+    width: 10px; height: 10px; background: transparent; 
+}
+::-webkit-scrollbar-thumb { 
+    background: var(--scrollbar-thumb); 
+    border-radius: 10px; 
+    border: 3px solid var(--background-primary); 
+}
+::-webkit-scrollbar-thumb:hover { 
+    background: var(--text-muted); 
+}
+
+/* ==========================================================================
+   3. CENTERED LAYOUT
+   ========================================================================== */
+
+/* Global top padding for all modes */
+.markdown-source-view.mod-cm6 .cm-scroller,
+.markdown-preview-view {
+    padding-top: 50px !important;
+}
+
+/* SCENARIO 1: Readable Line Length ON
+   Obsidian itself centers the content. We only need to expand it.
+   No margin-left/auto here to avoid breaking native behavior. */
+/* .is-readable-line-width .cm-sizer,
+.is-readable-line-width .markdown-preview-sizer {
+    max-width: 1100px !important;
+    width: 100% !important;
+} */
+
+/* SCENARIO 2: Readable Line Length OFF
+   Obsidian tries to stretch content to 100%. 
+   Here we forcibly enable centering. */
+.markdown-source-view.mod-cm6:not(.is-readable-line-width) .cm-sizer,
+.markdown-preview-view:not(.is-readable-line-width) .markdown-preview-sizer {
+    max-width: 1100px !important;
+    width: 100% !important;
+    
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-inline: auto !important;
+    
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+}
+
+/* Fix for tables and horizontal rules not exceeding container width */
+.markdown-preview-view .markdown-preview-sizer hr,
+.markdown-preview-view .markdown-preview-sizer table {
+    max-width: 100% !important;
+}
+
+
+/* ==========================================================================
+   4. WINDOW TITLEBAR & MAIN TABS
+   ========================================================================== */
+
+.titlebar { background-color: transparent !important; z-index: 0; }
+
+.titlebar-button-container {
+    background-color: var(--background-secondary) !important; 
+}
+.titlebar-button:hover {
+    background-color: var(--tab-hover) !important;
+}
+
+.workspace-tab-header-container {
+    background-color: var(--background-secondary) !important;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.workspace-tab-header {
+    background-color: transparent !important;
+    color: var(--text-muted);
+    /* border-radius: var(--radius-m) var(--radius-m) 0 0; */
+    margin-right: 4px;
+}
+
+.workspace-tab-header.is-active {
+    background-color: var(--background-primary) !important; 
+    font-weight: 500;
+    box-shadow: none !important;
+    border-top: 1px solid var(--background-modifier-border); 
+    border-left: 1px solid var(--background-modifier-border); 
+    border-right: 1px solid var(--background-modifier-border);
+    color: var(--text-normal); 
+}
+
+.workspace-tab-header:not(.is-active):hover {
+    color: var(--text-normal);
+    background-color: var(--tab-hover) !important;
+}
+
+/* ==========================================================================
+   5. SIDEBAR & RIBBON
+   ========================================================================== */
+.sidebar-toggle-button {
+    background-color: var(--background-secondary) !important;
+    border-bottom: 1px solid var(--background-modifier-border) !important;
+    margin: 1px auto !important; padding: 0 !important;
+    display: flex !important; align-items: center; justify-content: center;
+    cursor: pointer;
+    color: var(--text-muted) !important;
+}
+
+.sidebar-toggle-button:hover {
+    color: var(--text-accent) !important;
+    background-color: var(--background-secondary) !important;
+}
+
+.nav-folder-title, .nav-file-title {
+    font-size: 0.95em;
+    color: var(--text-navbar);
+    border-radius: var(--radius-l);
+    padding: 6px 12px;
+    margin: 2px 8px;
+}
+
+.nav-file-title:hover, .nav-folder-title:hover {
+    color: var(--text-normal);
+    background-color: var(--sidebar-hover); 
+}
+
+.nav-file-title.is-active {
+    color: var(--text-normal) !important;
+    background-color: var(--sidebar-hover);
+    /* font-weight: 600; */
+}
+
+/* Side Panels Headers */
+.mod-left-split .workspace-tab-header,
+.mod-right-split .workspace-tab-header {
+    background-color: transparent !important; border: none !important;
+}
+
+.mod-left-split .workspace-tab-header.is-active,
+.mod-right-split .workspace-tab-header.is-active {
+    background-color: var(--sidebar-hover) !important;
+    color: var(--text-accent) !important;
+    border-top: none !important;
+}
+
+/* ==========================================================================
+   6. EDITOR STYLES
+   ========================================================================== */
+.markdown-source-view.is-live-preview .HyperMD-list-line {
+    padding-bottom: 0.7em !important; margin-bottom: 0 !important;
+}
+.markdown-preview-view li {
+    margin-bottom: 0.7em !important;
+}
+
+/* Blockquotes */
+blockquote {
+    border: none;
+    background-color: var(--background-blockquote);
+    border-radius: var(--radius-m);
+    padding: 16px 24px;
+    margin: 1.5em 0;
+    color: var(--text-normal);
+    font-style: normal;
+    border-left: 4px solid var(--text-accent);
+}
+
+/* Checkboxes */
+input[type=checkbox] {
+    -webkit-appearance: none; appearance: none;
+    border-radius: 50%;
+    border: 1.5px solid var(--text-muted);
+    width: 18px; height: 18px;
+    position: relative; top: 4px;
+    cursor: pointer;
+    background-color: transparent;
+}
+input[type=checkbox]:checked {
+    background-color: var(--text-accent);
+    border-color: var(--text-accent);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   7. CODE BLOCKS & INLINE CODE
+   ========================================================================== */
+
+/* Inline Code */
+.markdown-source-view.is-live-preview .cm-inline-code,
+.markdown-reading-view code {
+    color: var(--text-accent) !important;
+    background-color: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    padding: 2px 5px;
+    font-family: var(--font-family-code);
+}
+
+/* Code Blocks Container */
+.markdown-reading-view pre,
+.markdown-source-view.is-live-preview .HyperMD-codeblock {
+    background-color: var(--code-background);
+    font-family: var(--font-family-code);
+}
+
+.markdown-reading-view pre {
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-m);
+    padding: 20px;
+}
+
+/* Live Preview Code Borders */
+.markdown-source-view.is-live-preview .HyperMD-codeblock-begin {
+    border-top: 1px solid var(--background-modifier-border);
+    border-left: 1px solid var(--background-modifier-border);
+    border-right: 1px solid var(--background-modifier-border);
+    border-top-left-radius: var(--radius-m);
+    border-top-right-radius: var(--radius-m);
+    padding-top: 5px;
+    background-color: var(--code-background);
+}
+.markdown-source-view.is-live-preview .HyperMD-codeblock {
+    border-left: 1px solid var(--background-modifier-border);
+    border-right: 1px solid var(--background-modifier-border);
+}
+.markdown-source-view.is-live-preview .HyperMD-codeblock-end {
+    border-bottom: 1px solid var(--background-modifier-border);
+    border-left: 1px solid var(--background-modifier-border);
+    border-right: 1px solid var(--background-modifier-border);
+    border-bottom-left-radius: var(--radius-m);
+    border-bottom-right-radius: var(--radius-m);
+    padding-bottom: 5px;
+    background-color: var(--code-background);
+}
+
+/* Syntax Highlighting */
+.cm-s-obsidian span.cm-comment { color: var(--code-comment) !important; }
+.cm-s-obsidian span.cm-string { color: var(--code-string) !important; }
+.cm-s-obsidian span.cm-keyword { color: var(--code-keyword) !important; }
+.cm-s-obsidian span.cm-def { color: var(--code-function) !important; }
+.cm-s-obsidian span.cm-property { color: var(--code-property) !important; }
+.cm-s-obsidian span.cm-number { color: var(--code-value) !important; }
+
+/* ==========================================================================
+   8. CUSTOM FILE ICONS
+   ========================================================================== */
+
+/* Standard Icon */
+body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "";
+    display: inline-block;
+    
+    /* Размер контейнера иконки */
+    width: 16px; 
+    height: 16px; 
+    margin-right: 6px;
+    
+    /* Цвет задается через фон, маска вырезает форму */
+    background-color: var(--text-navbar);
+    
+    /* SVG маска с кругом (точкой) по центру */
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg>') no-repeat center;
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg>') no-repeat center;
+    
+    -webkit-mask-size: contain;
+    mask-size: contain;
+
+    opacity: 0.7;
+    
+    /* Выравнивание */
+    vertical-align: middle;
+    position: relative;     
+    top: -1px;
+}
+
+
+.nav-file-title.is-active .nav-file-title-content::before {
+    background-color: var(--text-accent);
+    opacity: 1;
+}
+
+/* Base Style for Text Badges */
+body:not(.remove-file-icons) .nav-file-title[data-path*="."] .nav-file-title-content:not(.mk-tree-text)::before {
+    /* Basic Text Reset to allow overrides below */
+    font-family: 'Google Sans Code', monospace !important;
+    font-weight: 900 !important;
+    font-size: 10px !important;
+    width: 20px !important; margin-right: 2px !important;
+    display: inline-flex !important; align-items: center !important;
+    opacity: 1 !important;
+}
+
+/* --- DARK THEME SPECIFIC BADGE COLORS (Default) --- */
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".py"] .nav-file-title-content::before { content: "PY"; color: #ebe572; -webkit-mask: none; background: transparent; }
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".js"] .nav-file-title-content::before { content: "JS"; color: #F7DF1E; -webkit-mask: none; background: transparent; }
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".ts"] .nav-file-title-content::before { content: "TS"; color: #3178C6; -webkit-mask: none; background: transparent; }
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".html"] .nav-file-title-content::before{ content: "HTM"; color: #E34F26; -webkit-mask: none; background: transparent; }
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".css"] .nav-file-title-content::before { content: "CSS"; color: #1572B6; -webkit-mask: none; background: transparent; }
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".json"] .nav-file-title-content::before{ content: "{ }"; color: #858585; -webkit-mask: none; background: transparent; }
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".lua"] .nav-file-title-content::before { content: "LU"; color: #58de92; -webkit-mask: none; background: transparent; }
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".cpp"] .nav-file-title-content::before { content: "CPP"; color: #76b0dc; -webkit-mask: none; background: transparent; }
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".c"] .nav-file-title-content::before   { content: "C"; color: #A8B9CC; -webkit-mask: none; background: transparent; }
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".cs"] .nav-file-title-content::before  { content: "C#"; color: #9B4F96; -webkit-mask: none; background: transparent; }
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".go"] .nav-file-title-content::before  { content: "GO"; color: #00ADD8; -webkit-mask: none; background: transparent; }
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".sh"] .nav-file-title-content::before  { content: ">_"; color: #4EAA25; -webkit-mask: none; background: transparent; }
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".yaml"] .nav-file-title-content::before,
+body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".yml"] .nav-file-title-content::before { content: "YML"; color: #CB171E; -webkit-mask: none; background: transparent; }
+
+/* --- LIGHT THEME SPECIFIC BADGE COLORS (Darker for White Bg) --- */
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".py"] .nav-file-title-content::before { content: "PY"; color: #333333; -webkit-mask: none; background: transparent; }
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".js"] .nav-file-title-content::before { content: "JS"; color: #333333; -webkit-mask: none; background: transparent; }
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".ts"] .nav-file-title-content::before { content: "TS"; color: #333333; -webkit-mask: none; background: transparent; }
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".html"] .nav-file-title-content::before{ content: "HTM"; color: #333333; -webkit-mask: none; background: transparent; }
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".css"] .nav-file-title-content::before { content: "CSS"; color: #333333; -webkit-mask: none; background: transparent; }
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".json"] .nav-file-title-content::before{ content: "{ }"; color: #333333; -webkit-mask: none; background: transparent; }
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".lua"] .nav-file-title-content::before { content: "LU"; color: #333333; -webkit-mask: none; background: transparent; }
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".cpp"] .nav-file-title-content::before { content: "CPP"; color: #333333; -webkit-mask: none; background: transparent; }
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".c"] .nav-file-title-content::before   { content: "C"; color: #333333; -webkit-mask: none; background: transparent; }
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".cs"] .nav-file-title-content::before  { content: "C#"; color: #333333; -webkit-mask: none; background: transparent; }
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".go"] .nav-file-title-content::before  { content: "GO"; color: #333333; -webkit-mask: none; background: transparent; }
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".sh"] .nav-file-title-content::before  { content: ">_"; color: #333333; -webkit-mask: none; background: transparent; }
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".yaml"] .nav-file-title-content::before,
+body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".yml"] .nav-file-title-content::before { content: "YML"; color: #333333; -webkit-mask: none; background: transparent; }
+
+
+/* ==========================================================================
+   9. MATH & LATEX STYLING
+   ========================================================================== */
+
+
+.markdown-source-view .math-block,       /* Live Preview */
+.markdown-preview-view .math-block,      /* Reading Mode */
+mjx-container[display="true"] {          /* MathJax Container */
+    font-size: 1.15em !important;        /* Increasing font size by 35% */
+    padding: 10px 0 !important;          /* Adding padding to top and bottom */
+}
+
+.markdown-source-view .cm-math,
+mjx-container:not([display="true"]) {
+    font-size: 1.15em !important;
+}
