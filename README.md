@@ -2,7 +2,7 @@
 
 # Tech001 Theme
 
-<img src="screenshot.png" alt="Tech001 Theme Banner" width="800" />
+<img src="screenshot-banner.png" alt="Tech001 Theme Banner" width="800" />
 
 <p>
   <a href="https://github.com/volodinroman/obsidian-tech001-theme/releases/latest">
