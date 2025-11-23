@@ -6,10 +6,10 @@
 
 <p>
   <a href="https://github.com/volodinroman/obsidian-tech001-theme/releases/latest">
-    <img src="https://github.com/volodinroman/obsidian-tech001-theme?style=for-the-badge&color=0B57D0" alt="Latest Release">
+    <img src="https://img.shields.io/github/v/release/volodinroman/obsidian-tech001-theme?style=for-the-badge&color=0B57D0" alt="Latest Release">
   </a>
   <a href="https://github.com/volodinroman/obsidian-tech001-theme/blob/master/LICENSE">
-    <img src="https://github.com/volodinroman/obsidian-tech001-theme?style=for-the-badge&color=444746" alt="License">
+    <img src="https://img.shields.io/github/license/volodinroman/obsidian-tech001-theme?style=for-the-badge&color=444746" alt="License">
   </a>
 </p>
 
