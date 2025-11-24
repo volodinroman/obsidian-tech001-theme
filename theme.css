@@ -21,8 +21,8 @@ body {
     --nav-indentation-guide-color: transparent !important;
     --nav-indentation-guide-width: 0px !important;
     
-    --font-interface: 'Google Sans', 'Roboto', 'Inter', sans-serif;
-    --font-text: 'Google Sans', 'Roboto', 'Inter', sans-serif;
+    --font-interface: 'Roboto', 'Inter', sans-serif;
+    --font-text: 'Roboto', 'Inter', sans-serif;
     --font-family-code: 'JetBrains Mono', monospace;
 
     /* Shapes */
@@ -94,8 +94,8 @@ body.theme-light {
     --background-blockquote: #f1f3f4;    /* Soft Gray for quotes */
 
     /* Text */
-    --text-normal: #2d2d2d;              /* Google Gray 800 */
-    --text-muted: #5f6368;               /* Google Gray 700 */
+    --text-normal: #2d2d2d;              /* Gray 800 */
+    --text-muted: #5f6368;               /* Gray 700 */
     --text-faint: #9aa0a6;
     --text-navbar: #5f6368;
     --text-bold: #202124;                /* Near Black for bold */
@@ -109,7 +109,7 @@ body.theme-light {
     --h6-color: #3c4043;
 
     /* Accents */
-    --text-accent: #1a73e8;              /* Google Blue 600 */
+    --text-accent: #1a73e8;              /* Blue 600 */
     --text-accent-hover: #1557b0;
     --interactive-accent: #e8f0fe;       /* Light Blue Wash */
     --caret-color: #1a73e8;
@@ -441,7 +441,7 @@ body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tre
 /* Base Style for Text Badges */
 body:not(.remove-file-icons) .nav-file-title[data-path*="."] .nav-file-title-content:not(.mk-tree-text)::before {
     /* Basic Text Reset to allow overrides below */
-    font-family: 'Google Sans Code', monospace !important;
+    font-family: 'JetBrains Mono', monospace !important;
     font-weight: 900 !important;
     font-size: 10px !important;
     width: 20px !important; margin-right: 2px !important;
