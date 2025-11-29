@@ -498,3 +498,17 @@ mjx-container[display="true"] {          /* MathJax Container */
 mjx-container:not([display="true"]) {
     font-size: 1.15em !important;
 }
+
+/* ==========================================================================
+   10. PLUGIN COMPATIBILITY
+   ========================================================================== */
+
+/*
+ * FIX: Kanban Plugin Compatibility
+ * Resets the excessive top padding intended for standard notes,
+ * allowing Kanban boards to utilize the full height.
+ */
+.workspace-leaf-content[data-type="kanban"] .markdown-source-view.mod-cm6 .cm-scroller,
+.workspace-leaf-content[data-type="kanban"] .markdown-preview-view {
+    padding-top: 10px !important;
+}
