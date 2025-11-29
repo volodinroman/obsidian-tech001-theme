@@ -84,7 +84,7 @@ For the best experience, ensure the following settings are configured:
 
 *   **Appearance > Base color scheme:** Works great in both *Dark* and *Light*.
 *   **Files & Links > Show indentation guides:** `Off` (The theme handles indentation cleanly without vertical lines, but you can enable them if you prefer).
-*   **Font:** The theme defaults to *Google Sans / Inter / Roboto*. Ensure you have a nice sans-serif font installed.
+*   **Font:** The theme defaults to *Inter / Roboto*. Ensure you have a nice sans-serif font installed. For code it uses "JetBrains Mono" encoded into css, so you don't have to install it.
 
 ---
 
