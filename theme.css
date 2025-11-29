@@ -498,3 +498,10 @@ mjx-container[display="true"] {          /* MathJax Container */
 mjx-container:not([display="true"]) {
     font-size: 1.15em !important;
 }
+
+
+/* Kanban Plugin Patch */
+.workspace-leaf-content[data-type="kanban"] .markdown-source-view.mod-cm6 .cm-scroller,
+.workspace-leaf-content[data-type="kanban"] .markdown-preview-view {
+    padding-top: 0px !important; /* Возвращаем стандартный небольшой отступ */
+}
