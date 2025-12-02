@@ -22,25 +22,25 @@
 
 ---
 
-## ✨ Overview
+## Overview
 
 **Tech001** is a modern, high-contrast theme designed for developers, technical writers, and minimalists. It brings the clean, focus-driven aesthetics of Google's latest design systems into Obsidian.
 
 Whether you are writing documentation in the **Deep Dark** mode (inspired by Gemini/AI Studio) or drafting articles in the **Clean Light** mode (inspired by Material 3), Tech001 ensures your content takes center stage.
 
-## 🚀 Key Features
+## Key Features
 
-### 🎨 Design & UI
+### Design & UI
 *   **Dual Personality:**
-    *   🌑 **Dark Mode:** Deep gray backgrounds, pastel syntax highlighting, and "Gemini Blue" accents. Perfect for long writing sessions.
-    *   ☀️ **Light Mode:** Clean white surfaces, high-contrast black headers, and Google Blue accents. Professional and crisp.
+    *   **Dark Mode:** Deep gray backgrounds, pastel syntax highlighting, and "Gemini Blue" accents. Perfect for long writing sessions.
+    *   **Light Mode:** Clean white surfaces, high-contrast black headers, and Google Blue accents. Professional and crisp.
 
-### 💻 Developer Experience
+### Developer Experience
 *   **Smart File Icons:** Automatically replaces generic file icons with **text badges** based on file extensions (e.g., `PY`, `JS`, `CPP`, `HTML`, `JSON`). No more guessing which file is which.
 *   **VS Code Style Syntax:** Rich syntax highlighting optimized for readability in both light and dark modes.
 *   **Code Block Headers:** Stylish headers for code blocks in Live Preview mode.
 
-### 📝 Typography & Layout
+### Typography & Layout
 *   **Notion-Style Centering:** Content is centered with a fixed width while the scrollbar stays on the far right edge.
 *   **Visual Hierarchy:**
     *   **Headers** are bright/high-contrast.
@@ -50,7 +50,7 @@ Whether you are writing documentation in the **Deep Dark** mode (inspired by Gem
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Dark Mode (AI Studio Style)
 > Ideal for coding and late-night research.
@@ -62,7 +62,7 @@ Whether you are writing documentation in the **Deep Dark** mode (inspired by Gem
 
 ---
 
-## 📦 Installation
+## Installation
 
 ### Method 1: Obsidian Community Store (Recommended)
 1.  Open **Settings** > **Appearance**.
@@ -79,7 +79,7 @@ Whether you are writing documentation in the **Deep Dark** mode (inspired by Gem
 
 ---
 
-## 🔧 Recommended Settings
+## Recommended Settings
 For the best experience, ensure the following settings are configured:
 
 *   **Appearance > Base color scheme:** Works great in both *Dark* and *Light*.
@@ -88,7 +88,7 @@ For the best experience, ensure the following settings are configured:
 
 ---
 
-## ❤️ Support & Contributions
+## Support & Contributions
 
 Found a bug? Have a suggestion?
 Please [open an issue](https://github.com/volodinroman/obsidian-tech001-theme/issues) or submit a pull request!
