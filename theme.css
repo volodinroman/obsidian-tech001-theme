@@ -307,10 +307,10 @@ strong, b, .cm-strong {
    6. EDITOR STYLES
    ========================================================================== */
 .markdown-source-view.is-live-preview .HyperMD-list-line {
-    padding-bottom: 0.7em !important; margin-bottom: 0 !important;
+    padding-bottom: 0.5em !important; margin-bottom: 0 !important;
 }
 .markdown-preview-view li {
-    margin-bottom: 0.7em !important;
+    margin-bottom: 0.5em !important;
 }
 
 /* Blockquotes */
@@ -346,20 +346,54 @@ input[type=checkbox]:checked {
    ========================================================================== */
 
 /* Inline Code */
-.markdown-source-view.is-live-preview .cm-inline-code,
+/* .markdown-source-view.is-live-preview .cm-inline-code, */
 .markdown-reading-view code {
     color: var(--text-accent) !important;
     background-color: var(--background-secondary);
     border: 1px solid var(--background-modifier-border);
     padding: 2px 5px;
     font-family: var(--font-family-code);
+    font-size: var(--code-size) !important;
+
 }
+
+/* Resetting Inline Code Container to avoid conflicts */
+.markdown-source-view.is-live-preview .cm-inline-code {
+    display: inline !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Styling ONLY THE TEXT (excluding backticks) */
+.markdown-source-view.is-live-preview .cm-inline-code:not(.cm-formatting) {
+    color: var(--text-accent) !important;
+    background-color: var(--background-secondary) !important;
+    border: 1px solid var(--background-modifier-border) !important;
+    border-radius: var(--radius-s) !important;
+    padding: 1px 5px !important; 
+    margin: 0 1px !important; 
+    font-family: var(--font-family-code);
+    font-size: var(--code-size) !important;
+}
+
+/* Backticks Styling */
+.markdown-source-view.is-live-preview .cm-formatting-code {
+    color: var(--text-muted) !important;
+    font-size: 0.9em; /* Чуть меньше основного текста */
+    opacity: 0.5;
+}
+
 
 /* Code Blocks Container */
 .markdown-reading-view pre,
 .markdown-source-view.is-live-preview .HyperMD-codeblock {
     background-color: var(--code-background);
     font-family: var(--font-family-code);
+    line-height: 1.4 !important;
 }
 
 .markdown-reading-view pre {
@@ -404,83 +438,43 @@ input[type=checkbox]:checked {
    8. CUSTOM FILE ICONS
    ========================================================================== */
 
-/* Standard Icon */
-body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tree-text)::before {
-    content: "";
-    display: inline-block;
-    
-    /* Размер контейнера иконки */
-    width: 16px; 
-    height: 16px; 
-    margin-right: 6px;
-    
-    /* Цвет задается через фон, маска вырезает форму */
-    background-color: var(--text-navbar);
-    
-    /* SVG маска с кругом (точкой) по центру */
-    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg>') no-repeat center;
-    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg>') no-repeat center;
-    
-    -webkit-mask-size: contain;
-    mask-size: contain;
-
-    opacity: 0.7;
-    
-    /* Выравнивание */
-    vertical-align: middle;
-    position: relative;     
-    top: -1px;
+.nav-folder-title-content {
+    align-items: center;
+    padding-top: 2px; 
+    padding-bottom: 2px;
+    padding-left: 0px;
 }
 
+.nav-file-title-content {
+    display: flex !important;
+    /* align-items: center; */
+    gap: 8px !important; 
+    padding-top: 2px; 
+    padding-bottom: 2px;
+    padding-left: 0px;
+}
 
 .nav-file-title.is-active .nav-file-title-content::before {
     background-color: var(--text-accent);
     opacity: 1;
 }
 
-/* Base Style for Text Badges */
-body:not(.remove-file-icons) .nav-file-title[data-path*="."] .nav-file-title-content:not(.mk-tree-text)::before {
-    /* Basic Text Reset to allow overrides below */
-    font-family: 'JetBrains Mono', monospace !important;
-    font-weight: 900 !important;
-    font-size: 10px !important;
-    width: 20px !important; margin-right: 2px !important;
-    display: inline-flex !important; align-items: center !important;
-    opacity: 1 !important;
+/* file */
+body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tree-text)::before {
+    content: "";
+    flex-shrink: 0; 
+    width: 14px; 
+    height: 14px; 
+    /* margin-right: 6px !important; */
+    background-color: var(--text-muted);
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>') no-repeat center;
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>') no-repeat center;
+    mask-size: contain;
+    vertical-align: baseline;
+    position: relative;
+    top: 2px;    
+    left: 0px; 
 }
-
-/* --- DARK THEME SPECIFIC BADGE COLORS (Default) --- */
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".py"] .nav-file-title-content::before { content: "PY"; color: #ebe572; -webkit-mask: none; background: transparent; }
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".js"] .nav-file-title-content::before { content: "JS"; color: #F7DF1E; -webkit-mask: none; background: transparent; }
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".ts"] .nav-file-title-content::before { content: "TS"; color: #3178C6; -webkit-mask: none; background: transparent; }
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".html"] .nav-file-title-content::before{ content: "HTM"; color: #E34F26; -webkit-mask: none; background: transparent; }
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".css"] .nav-file-title-content::before { content: "CSS"; color: #1572B6; -webkit-mask: none; background: transparent; }
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".json"] .nav-file-title-content::before{ content: "{ }"; color: #858585; -webkit-mask: none; background: transparent; }
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".lua"] .nav-file-title-content::before { content: "LU"; color: #58de92; -webkit-mask: none; background: transparent; }
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".cpp"] .nav-file-title-content::before { content: "CPP"; color: #76b0dc; -webkit-mask: none; background: transparent; }
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".c"] .nav-file-title-content::before   { content: "C"; color: #A8B9CC; -webkit-mask: none; background: transparent; }
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".cs"] .nav-file-title-content::before  { content: "C#"; color: #9B4F96; -webkit-mask: none; background: transparent; }
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".go"] .nav-file-title-content::before  { content: "GO"; color: #00ADD8; -webkit-mask: none; background: transparent; }
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".sh"] .nav-file-title-content::before  { content: ">_"; color: #4EAA25; -webkit-mask: none; background: transparent; }
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".yaml"] .nav-file-title-content::before,
-body.theme-dark:not(.remove-file-icons) .nav-file-title[data-path$=".yml"] .nav-file-title-content::before { content: "YML"; color: #CB171E; -webkit-mask: none; background: transparent; }
-
-/* --- LIGHT THEME SPECIFIC BADGE COLORS (Darker for White Bg) --- */
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".py"] .nav-file-title-content::before { content: "PY"; color: #333333; -webkit-mask: none; background: transparent; }
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".js"] .nav-file-title-content::before { content: "JS"; color: #333333; -webkit-mask: none; background: transparent; }
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".ts"] .nav-file-title-content::before { content: "TS"; color: #333333; -webkit-mask: none; background: transparent; }
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".html"] .nav-file-title-content::before{ content: "HTM"; color: #333333; -webkit-mask: none; background: transparent; }
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".css"] .nav-file-title-content::before { content: "CSS"; color: #333333; -webkit-mask: none; background: transparent; }
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".json"] .nav-file-title-content::before{ content: "{ }"; color: #333333; -webkit-mask: none; background: transparent; }
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".lua"] .nav-file-title-content::before { content: "LU"; color: #333333; -webkit-mask: none; background: transparent; }
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".cpp"] .nav-file-title-content::before { content: "CPP"; color: #333333; -webkit-mask: none; background: transparent; }
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".c"] .nav-file-title-content::before   { content: "C"; color: #333333; -webkit-mask: none; background: transparent; }
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".cs"] .nav-file-title-content::before  { content: "C#"; color: #333333; -webkit-mask: none; background: transparent; }
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".go"] .nav-file-title-content::before  { content: "GO"; color: #333333; -webkit-mask: none; background: transparent; }
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".sh"] .nav-file-title-content::before  { content: ">_"; color: #333333; -webkit-mask: none; background: transparent; }
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".yaml"] .nav-file-title-content::before,
-body.theme-light:not(.remove-file-icons) .nav-file-title[data-path$=".yml"] .nav-file-title-content::before { content: "YML"; color: #333333; -webkit-mask: none; background: transparent; }
-
 
 /* ==========================================================================
    9. MATH & LATEX STYLING
