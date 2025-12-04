@@ -438,17 +438,11 @@ input[type=checkbox]:checked {
    8. CUSTOM FILE ICONS
    ========================================================================== */
 
-.nav-folder-title-content {
-    align-items: center;
-    padding-top: 2px; 
-    padding-bottom: 2px;
-    padding-left: 0px;
-}
-
+.nav-folder-title-content,
 .nav-file-title-content {
     display: flex !important;
-    /* align-items: center; */
-    gap: 8px !important; 
+    align-items: center;
+    gap: 4px !important; 
     padding-top: 2px; 
     padding-bottom: 2px;
     padding-left: 0px;
@@ -465,15 +459,12 @@ body:not(.remove-file-icons) .nav-file-title .nav-file-title-content:not(.mk-tre
     flex-shrink: 0; 
     width: 14px; 
     height: 14px; 
-    /* margin-right: 6px !important; */
     background-color: var(--text-muted);
-    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>') no-repeat center;
-    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>') no-repeat center;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg>') no-repeat center;
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg>') no-repeat center;
     mask-size: contain;
     vertical-align: baseline;
-    position: relative;
-    top: 2px;    
-    left: 0px; 
+    position: static;
 }
 
 /* ==========================================================================
